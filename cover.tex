@@ -1,0 +1,89 @@
+% !Mode:: "TeX:UTF-8"
+
+\newcommand{\chinesethesistitle}{密集热点区域无线网络性能分析与优化} %授权书用，无需断行
+\newcommand{\englishthesistitle}{\uppercase{performance analysis and optimization in dense hot point wireless networks}} %\uppercase作用：将英文标题字母全部大写；
+\newcommand{\chinesethesistime}{2018~年~6~月}  %封面底部的日期中文形式
+\newcommand{\englishthesistime}{June, 2018}    %封面底部的日期英文形式
+
+\ctitle{密集热点区域无线网络性能分析与优化}  %封面用论文标题，自己可手动断行
+\cdegree{\cxueke\cxuewei}
+\csubject{电子与通信工程}                 %(~按二级学科填写~)
+\caffil{电子与信息工程学院} %（在校生填所在系名称，同等学力人员填工作单位）
+\cauthor{麻津铭}
+\csupervisor{陈晓华教授} %导师名字
+%\cassosupervisor{副导名}%若没有，请屏蔽掉此句。
+%\ccosupervisor{联导名}%若没有，请屏蔽掉此句。
+
+
+\cdate{\chinesethesistime}
+
+\etitle{\englishthesistitle}
+\edegree{\exuewei \ of \exueke}
+\esubject{Electronics and Communication Engineering}  %英文二级学科名
+\eaffil{School of Electronics and \qquad \quad Information Engineering}
+\eauthor{Ma Jin-Ming}                   %作者姓名 （英文）
+\esupervisor{Prof. Hsiao-Hwa Chen}       % 导师姓名 （英文）
+%\eassosupervisor{Prof. Assosuper}%若没有，请屏蔽掉此句。
+%\ecosupervisor{Prof. Cosuper}%若没有，请屏蔽掉此句。
+\edate{\englishthesistime}
+
+\natclassifiedindex{TN929.53}  %国内图书分类号
+\internatclassifiedindex{621.3}  %国际图书分类号
+\statesecrets{公开} %秘密
+
+\iffalse
+\BiAppendixChapter{摘~~~~要}{}  %使用winedt编辑时文档结构图（toc）中为了显示摘要，故增加此句；
+\fi
+\cabstract{
+5G将于2020年前后开始商用，这对通信人提出了新的挑战——在未来的网络中，网络的容量要求大大增加。
+相比于4G，5G网络的容量需求将有1000倍的增长。
+超密集组网在区域面积内放置了更多的基站，这是能够提供巨大容量增益一种十分可靠的技术。
+通过在宏基站的热点区域放置小的基站，也可以实现在小区内的任何地点都可以流畅通信的愿景。
+超密集组网将用于满足区域面积内超高的容量需求，让用户在无论何时，无论何地都能拥有超高速的上网和通话体验。
+但密集的网络使得基站之间的距离更近，随之带来的小基站之间干扰问题越发明显。
+并且在现代的通信系统中，由于移动用户多，接入事件长，用户需求多样，导致系统的业务量需求很大，但频谱资源却是有限的。
+因此结合根据密集热点区域无线网络的特性，对无线网络进行有效合理的建模，并设计一个好的资源分配算法来协调干扰,增加单位频谱的利用效率,保证系统的正常运行。
+
+首先，本文结合密集热点区域无线网络的特性。根据基站与用户的统计特性，基于随机几何模型，得到了覆盖率和区域面积谱效率的表达式。
+并采用蒙特卡洛仿真的方法验证了表达式的正确性。
+通过得到覆盖率和区域面积谱效率的表达式，可以很清楚的看出网络的密集程度，热点的热度，以及路径损耗因子对整个密集热点区域网络的性能影响。
+并得到了覆盖率与区域面积谱效率相对于这些参数的仿真与分析曲线。
+可以看到，基于随机几何模型的覆盖率和区域面积谱效率的表达式，该表达式求解简单，且可以很好的估计密集热点区域无线网络的指标，便于分析网络中各个相关参数对性能的影响。
+
+接着，本文首先根据场景的特性，提出基于CRAN的网络架构，并基于图论中的优化策略，将基站、用户看成节点，将基站与用户之间的链路看成变，构造二分图。
+通过对二分图进行合理的剪枝，得到既可以表达基站与用户之间的连接关系，又不失一般性的图模型。
+在该图模型的基础之上，提出基于二分图的图模型的频谱与功率资源的优化算法，提高密集热点区域无线网络场景下的性能。
+本文对提出的频谱与功率资源调度算法进行了理论分析和仿真，并与传统的频谱与功率资源调度算法进行了比较。
+结果表明该算法相比传统的调度算法，可以显著降低密集热点区域无线网络的小区间干扰，提高区域的覆盖率与接入用户数、进而提升该区域的单位面积谱效率。
+}
+\ckeywords{超密集组网；无线网络建模；随机几何；资源调度；图模型}
+
+\eabstract{
+
+5G will begin commercial use around 2020, which poses new challenges for communicators - in the future, the network's capacity requirements will greatly increase.
+Compared to 4G, the capacity requirement of 5G networks will increase by a factor of 1,000.
+The ultra-dense networking places more base stations in the area, which is a very reliable technology that can provide huge capacity gain.
+By placing a small base station in a hot spot area of ​​a macro base station, it is also possible to realize a vision of smooth communication anywhere in the cell.
+The ultra-dense networking will be used to meet the ultra-high capacity requirements in the area, allowing users to have ultra-high-speed Internet access and call experience whenever and wherever they are.
+However, the dense network makes the distance between the base stations closer, and the problem of interference between the small base stations becomes more and more obvious.
+In modern communication systems, there are many mobile users, long access events, and diverse user demands, resulting in a large amount of system traffic, but spectrum resources are limited.
+Therefore, according to the characteristics of the wireless network in dense hotspots, an effective and reasonable wireless network model is established, and a good resource allocation algorithm is designed to coordinate interference, increase the utilization efficiency of the unit spectrum, and ensure the normal operation of the system.
+
+
+First, this paper combines the characteristics of wireless networks in dense hotspots. According to the statistical characteristics of the base station and the user, based on the stochastic geometric model, the expressions of the coverage rate and the area spectrum efficiency are obtained.
+Monte Carlo simulation method was used to verify the correctness of the expression.
+By obtaining the expressions of coverage and area area spectrum efficiency, it can be clearly seen that the density of the network, the hotness of the hot spots, and the path loss factor affect the performance of the entire dense hot spot network.
+The simulation and analysis curves of the coverage and area area spectrum efficiency relative to these parameters were obtained.
+It can be seen that based on the expressions of the coverage rate of the random geometric model and the efficiency of the area spectrum, the expression is simple to solve, and the indexes of the wireless network in the dense hot spot area can be well estimated, and it is convenient to analyze the relevant parameters of the network for performance.
+
+Then, according to the characteristics of the scene, this paper first proposes a CRAN-based network architecture. Based on the optimization strategy in graph theory, the base station and users are regarded as nodes, and the link between the base station and the user is regarded as a variable, and a bipartite graph is constructed.
+By pruning the bipartite graph reasonably, the graph model that can express the connection between the base station and the user without losing the generality can be obtained.
+Based on the model in this figure, an optimization algorithm for the spectrum and power resources of the graph model based on the bipartite graph is proposed to improve the performance in dense wireless network scenarios in hot spots.
+In this paper, the proposed spectrum and power resource scheduling algorithms are theoretically analyzed and simulated, and compared with the traditional spectrum and power resource scheduling algorithms.
+The results show that compared with the traditional scheduling algorithm, this algorithm can significantly reduce the inter-cell interference in wireless networks in dense hotspots, increase the coverage and access users of the area, and then increase the spectral efficiency per unit area of ​​the area.
+}
+
+\ekeywords{Ultra Dense Networks, Wireless Network Modeling, Stochastic Geometry, Resource Allocation, Graphical Model}
+
+\makecover
+\clearpage

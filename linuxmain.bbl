@@ -1,0 +1,141 @@
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Hu et al.(2018)]{QosUDN}
+Hu W~C, Huang N~H, Chiueh T~D.
+\newblock Software Defined Radio Implementation of an LTE Downlink Transceiver
+  for Ultra Dense Networks[J].
+\newblock 2018 IEEE International Symposium on Circuits and Systems (ISCAS),
+  2018:1-5.
+
+\bibitem[Sadr and Adve(2014)]{4LRA}
+Sadr S, Adve R~S.
+\newblock Partially-Distributed Resource Allocation in Small-Cell Networks[J].
+\newblock IEEE Transactions on Wireless Communications, 2014, 13(12):6851-6862.
+
+\bibitem[Du et al.(2017)]{condesign}
+Du J, Gelenbe E, Jiang C, et al.
+\newblock Contract Design for Traffic Offloading and Resource Allocation in
+  Heterogeneous Ultra-Dense Networks[J].
+\newblock IEEE Journal on Selected Areas in Communications, 2017,
+  35(11):2457-2467.
+
+\bibitem[Andrews et al.(2011)]{ATractable}
+Andrews J~G, Baccelli F, Ganti R~K.
+\newblock A Tractable Approach to Coverage and Rate in Cellular Networks[J].
+\newblock IEEE Transactions on Communications, 2011, 59(11):3122-3134.
+
+\bibitem[Sokun et al.(2017)]{OFDMRA}
+Sokun H~U, Bedeer E, Gohary R~H, et al.
+\newblock Optimization of Discrete Power and Resource Block Allocation for
+  Achieving Maximum Energy Efficiency in OFDMA Networks[J].
+\newblock IEEE Access, 2017, 5:8648-8658.
+
+\bibitem[张洪(2016)]{zhanghong}
+张洪.
+\newblock
+  超密集组网中区域频谱效率及区域能量效率的研究[D].
+\newblock 哈尔滨工业大学, 2016.
+
+\bibitem[D.~Stoyan and Mecke(1996)]{Stogeo}
+D.~Stoyan W~K, Mecke J.
+\newblock Stochastic Geometry and Its Applications[J].
+\newblock John Wiley and Sons, 1996.
+
+\bibitem[Chandrasekhar et al.(2009)]{2LayerPC}
+Chandrasekhar V, Andrews J~G, Muharemovic T, et al.
+\newblock Power control in two-tier femtocell networks[J].
+\newblock IEEE Transactions on Wireless Communications, 2009, 8(8):4316-4328.
+
+\bibitem[Li et al.(2014)]{UDNMIMO}
+Li C, Zhang J, Letaief K~B.
+\newblock Throughput and Energy Efficiency Analysis of Small Cell Networks with
+  Multi-Antenna Base Stations[J].
+\newblock IEEE Transactions on Wireless Communications, 2014, 13(5):2505-2517.
+
+\bibitem[Li et al.(2015)]{user-centric}
+Li C, Zhang J, Haenggi M, et al.
+\newblock User-Centric Intercell Interference Nulling for Downlink Small Cell
+  Networks[J].
+\newblock IEEE Transactions on Communications, 2015, 63(4):1419-1431.
+
+\bibitem[Ding et al.(2015)]{cbsdn}
+Ding J, Yu R, Zhang Y, et al.
+\newblock Service provider competition and cooperation in cloud-based software
+  defined wireless networks[J].
+\newblock IEEE Communications Magazine, 2015, 53(11):134-140.
+
+\bibitem[Pan et al.(2017)]{CRANUDN}
+Pan C, Zhu H, Gomes N~J, et al.
+\newblock Joint User Selection and Energy Minimization for Ultra-Dense
+  Multi-channel C-RAN With Incomplete CSI[J].
+\newblock IEEE Journal on Selected Areas in Communications, 2017,
+  35(8):1809-1824.
+
+\bibitem[Stephen and Zhang(2017)]{MMCRAN}
+Stephen R~G, Zhang R.
+\newblock Millimeter-Wave CRAN with Lens Antenna Arrays[J].
+\newblock 2017:1-6.
+
+\bibitem[Huawei(2005)]{yangxuezhi}
+Huawei.
+\newblock Soft frequency reuse scheme for UTRAN LTE[J].
+\newblock 2005:1-3.
+
+\bibitem[Xue et al.(2016)]{DisPrecode}
+Xue Y, Tian Y, Yang C.
+\newblock Distributed precoding in ultra-dense network with dynamic user
+  access[J].
+\newblock 2016:1-6.
+
+\bibitem[Kurras et al.(2015)]{LayerPrecode}
+Kurras M, Shehata M, Hassan K, et al.
+\newblock Spatial interference management with hierarchical precoding in
+  ultra-dense heterogeneous networks[J].
+\newblock 2015:520-526.
+
+\bibitem[Thiele and Kurras(2014)]{Layer2Precode}
+Thiele L, Kurras M.
+\newblock Hierarchical precoding for ultra-dense heterogeneous networks[J].
+\newblock 2014:1286-1290.
+
+\bibitem[Zhang et al.(2018)]{Ucent}
+Zhang Y, Bi S, Zhang Y~J~A.
+\newblock User-Centric Joint Transmission in Virtual-Cell-Based Ultra-Dense
+  Networks[J].
+\newblock IEEE Transactions on Vehicular Technology, 2018, 67(5):4640-4644.
+
+\bibitem[Chen et al.(2017)]{CoMPUDN}
+Chen Y~H, Chao H~L, Wu S~H, et al.
+\newblock Resource allocation with CoMP transmission in ultra dense cloud-based
+  LTE small cell networks[J].
+\newblock 2017:1-5.
+
+\bibitem[Liu et al.(2017)]{UNOMAcent}
+Liu Y, Li X, Yu F~R, et al.
+\newblock Grouping and Cooperating Among Access Points in User-Centric
+  Ultra-Dense Networks With Non-Orthogonal Multiple Access[J].
+\newblock IEEE Journal on Selected Areas in Communications, 2017,
+  35(10):2295-2311.
+
+\bibitem[IMT-2020(5G)推进组(2015)]{5Gwhitebook}
+IMT-2020(5G)推进组.
+\newblock 5G 愿景与需求白皮书[J].
+\newblock http://www.imt-2020.org.cn/zh/documents/listByQuery, 2015.
+
+\bibitem[Yu et al.(2015)]{spsharing}
+Yu Q, Wang J, Yang X, et al.
+\newblock Inter-operator interference coordination for co-primary spectrum
+  sharing in UDN[J].
+\newblock China Communications, 2015, 12(Supplement):104-112.
+
+\bibitem[Shannon(1948)]{TheMathematicalTheoryOfCommunication}
+Shannon C~E.
+\newblock A mathematical theory of communication[J].
+\newblock The Bell System Technical Journal, 1948, 27(4):623-656.
+
+\end{thebibliography}

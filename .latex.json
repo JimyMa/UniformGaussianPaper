@@ -1,0 +1,11 @@
+{
+  "projectPath": "/home/zoo2/Documents/UDNs/结题/latex",
+  "title": "LaTeX-Plus Project",
+  "root": "linuxmain.tex",
+  "program": "pdflatex",
+  "latexmkOptions": "-bibtex -pdf -shell-escape",
+  "output": ".latex",
+  "openOutput": "true",
+  "postAction": "link",
+  "postPath": ""
+}
