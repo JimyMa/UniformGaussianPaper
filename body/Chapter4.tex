@@ -200,30 +200,28 @@ a_{ij}=
 表示将基站的集合~$S$~分成了~$m$~个子集合，每个集合里的基站构成一簇。
 完整的描述如算法~\ref{algorithm_bs_dfs}~所示：
 
+
 \begin{algorithm}[!htb]
 \caption{ 基于深度优先搜索的基站分簇算法 }
 \label{algorithm_bs_dfs}
 \small
 \SetKwProg{Fn}{Function}{}{end}
 \KwIn{  $\tau$~；$\mathcal{S}(x,y)$}
-\KwOut{$\mathcal{K}$}
+\KwOut{ $\mathcal{K}$ }
 \Begin
 {
-    第一步：初始化\\
+    第~1~步：初始化\\
     $\mathbf{A}=\{a_{ij}\}_{n\times n}=\{0\}_{n\times n}$~；
     $c=0$~；
     $\mathcal{K}=\varnothing$~；
     $\mathbf{v}=\{v_i\}_n=\{0\}_n$~\\
-    第二步：构造邻接矩阵~$\mathbf{A}$：\\
-    \For{~$i=1 \ to \ n$~}
+
+    第~2~步：构造邻接矩阵~$\mathbf{A}$：\\
+    \For{~$i=1 \ to \ n$，$j=1 ~ to ~ n$~}
     {
-        \For{~$j=1 ~ to ~ n$~}
-        {
           $a_{ij}=(\sqrt{({x_i} - {x_j})^2+(y_i-y_j)^2} < 0~)$  \\
-          % $a_{ij}=(R_{ij} < \tau)$
-        }
     }
-    第三步：构造深度优先搜索函数：\\
+    第~3~步：构造深度优先搜索函数：\\
     \Fn{$DFS$(~$node$~$i$~, $\mathcal{C}_c$~)}
     {
       \For{~$j=1\ to\ n, j \neq i$~}
@@ -232,15 +230,15 @@ a_{ij}=
         {
           $v_{j}=1$ \\
           $\mathcal{C}_c=\mathcal{C}_c \bigcup~ \{~S_j~\}$\\
-          $\emph{DFS(~i~,~}\mathcal{C}_c ~\emph{)}$\\
+          $\emph{DFS(~j~,~}\mathcal{C}_c ~\emph{)}$\\
         }
       }
     }
-    第四步： 基于深度优先搜索的基站分簇
+    第~4~步： 基于深度优先搜索的基站分簇\\
     \For{~$i=1 \ to \ n$~}
     {
       \If{~$v_i == 0$~}{
-        $c += 1$ \\
+        $c ~+= 1$ \\
         $\mathcal{C}_c = \{~S_i~\}$\\
         $v_i = 1$\\
         $\emph{DFS(~i~,~}\mathcal{C}_c ~\emph{)}$\\
@@ -293,14 +291,89 @@ a_{ij}=
 
 
 \BiSubsection{基于~k~-~均值的微基站分簇算法}{Time diversity}
+K~-~均值算法是人工智能领域常用的一种非监督学习算法\citeup{InfoTheoryInference}。
+其是一种基于迭代的统计学习方法，由~Dempster~等人总结提出，
+是均方最大(~EM~)算法的一种特例\citeup{statisticslearning}。
+算法的主要步骤分为两步，即分配步骤和更新步骤。
+功能分别为设定权重矩阵和更新均值点集。
+与机器的思考方式不同，人类可以很容易的辨识区域内的物体，并将这些物体分类。
+但若要让计算机也可以对空间内的点集进行分簇，
+需要采用聚类算法，将簇内基站相距距离较近，并且与簇外基站相距较远，
+并且由于算法存在均值，一个簇所划归的区域近似为一个圆形。
+k~-~均值算法首先随机生成~k~个点作为均值的初始点，均值点的集合用~$\mathcal{M}$~表示，
+$\mathcal{M}=\{~M_1(x_1,y_1),~M_2(x_2,y_2),\dots,~M_k(x_k,y_k)~\}$。
+将每个均值附近的点作为一簇，再通过簇内点集迭代出新的均值。
+直到算法收敛或迭代次数耗尽为止。
+
+在密集热点区域无线网络覆盖的区域~$\mathcal{D}$~上，
+已知微基站的位置坐标集合~$\mathcal{S}(x,y) = \{S_1(x_1,y_1), S_2(x_2,y_2),\dots,S_n(x_n,y_n)\}$。
+用~k~-均值算法将点集~$\mathcal{S}(x,y)$~分成~K~个簇~$\mathcal{S} = \dot{\bigcup}_{i=1}^{k} \mathcal{C}_i$。
+对任意的~$i\in\{~1,~,2,\dots,~n~\}$，$j\in\{~1,~2,\dots,~k~\}$，
+$d(~S_i,~M_j~)$~表示微基站~$S_i$~和均值~$M_j$~之间的距离。算法的描述如算法~\ref{kmeansalgorithm}~所示：
+\begin{algorithm}[!htb]
+\caption{ 基于~k~-均值聚类的基站分簇算法 }
+\label{kmeansalgorithm}
+\small
+\SetKwProg{Fn}{Function}{}{end}
+\KwIn{$k$~；$\mathcal{S}(~x,~y~)$~；$iter$}
+\KwOut{$\mathcal{M}$}
+\Begin
+{
+    第1步：初始化\\
+    随机生成~k~个坐标~$\mathcal{M}=\{~M_1,~M_2,\cdots,~M_k~\}$~构成均值点集；\\
+    生成权值矩阵~$\mathbf{C}=\{~0~\}_{n\times k}$~；\\
+    迭代次数~$count=0$~\\
+
+    第2步：~k~-~均值算法：\\
+    \While{~$count++ < ~iter$~}
+    {
+      步骤~2.1：设定权重矩阵\\
+      $\mathbf{C}=\{~c_{ij}~\}_{n\times k}=\{~0~\}_{n\times k}$\\
+      \For{~$i=1 \ to \ n$~}
+      {
+        $\hat{j}=\arg\min\limits_{j} ~d(~S_i,~M_j~)$ \\
+        $c_{i\hat{j}}=1$  \\
+      }
+
+      步骤~2.2~：均值点集更新：\\
+      \For{~$j=1 \ to \ k$~}
+      {
+        $C_j = \sum_{i=1}^n c_{ij}$  \\
+        $M_j(~x_j, y_j~) = \frac{\sum_{i=1}^{n} c_{ij} S_i(~x_i,~y_i~)}{C_j}$  \\
+      }
+    }
+}
+\end{algorithm}
+
+首先输入基站分簇的簇的个数~k~，微基站的坐标~$\mathcal{S}(~x,y~)$，迭代次数~$iter$。
+算法主要分为两步，第~1~步为初始化部分，随机生成~k~个点作为均值点的初值，
+权重矩阵~$\mathbf{C}$~设定为全~0~矩阵，设定迭代次数~$count$~为~0。
+算法的第~2~步为~k~-~均值算法的实现，是一个迭代的过程，迭代的次数为~$iter$~次。
+迭代的过程分为两个子步骤，子步骤~2.1~找遍历所有的微基站，找到距离微基站最近的均值点，
+将权重矩阵~$\mathbf{C}$~相应的位置置~1。
+子步骤~2.2~用得到的权值矩阵~$\mathbf{W}$~
+对基站的坐标~$\mathcal{S}(~x,~y~)$~进行权值更新得到新的均值集合~$\mathcal{M}$。
+
+基于~k~-均值算法的聚类可以对基站进行分簇，与基于深度搜索算法的基站分簇不同，
+基于~k~-~均值算法的基站分簇将区域内的基站均匀的分配到~k~个簇当中，
+每个区域的大小也近似相同，是一种有效的基站分簇算法。
+并且基于~k~-~均值的基站分簇算法可以的到网络的中心，
+簇的大致位置可以通过均值的信息反映出来。
+
+基于~k~-~均值算法的基站分簇需要预先设置好簇的个数，
+为了得到最优的簇的个数，
+需要进行多次试验。
+不仅如此，算法需要通过迭代实现分簇，算法的复杂度较高。
+由于算法并不是依据基站之间的关系进行分簇，因此也没有利用基站之间的拓扑结构这一信息。
+
+\BiSection{密集热点区域无线网络的簇内干扰消除与优化}{algorithm construction}
 
 \BiSection{密集热点区域无线网络优化的性能分析}{analysis}
 \BiSubsection{网络分簇算法的分析}{cluster}
 
 在第三章，我们给出了网络仿真的网络示意图~\ref{network_show}，
 对基于深度优先搜索算法的基站分簇算法得到的分簇结果进行仿真，
-方针参数如表~\ref{dfs_show_sim_para}~所示：
-
+仿真参数如表~\ref{dfs_show_sim_para}~所示：
 \begin{table}[htbp]
 \caption{基于深度优先搜索的分簇算法的仿真参数}
 \label{dfs_show_sim_para}
@@ -313,24 +386,56 @@ a_{ij}=
 泊松点过程的密度参数~$\lambda_s$~ & & & ~$0.01~\mathrm{m}^{-2}$~ \\
 区域的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$~ \\
 基站的个数~$n$~  & & & 100\\
-深度搜索的距离门限~$\tau$~设定 & & & ~$5m$~\\
+深度搜索的距离门限~$\tau$~ & & & ~$5\mathrm{m}$~\\
 \bottomrule[1.5pt]
 \end{tabular}
 \end{table}
 
 选取的区域的大小为 ~$100\mathrm{m} \times 100 \mathrm{m}$~的正方形的区域，
-正方形的区域中的基站的部署为泊松点过程，密度参数为~$\lambda_s=0.01 \mathrm{m}^{-2}$。
-对生成的这片区域采用基于深度优先搜索的分簇算法，得到的网络示意图如图~$\ref{dfs_network_show}~$所示:
-
+正方形的区域中的基站的部署为泊松点过程，密度参数为~$\lambda_s=0.01 \mathrm{m}^{-2}$，
+距离门限~$\tau=5~\mathrm{m}$。
+对生成的这片区域采用基于深度优先搜索的分簇算法，得到的网络示意图如图~\ref{dfs_network_show}~所示:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width = 0.62\textwidth]{dfs_network_show.pdf}
 \caption{基于深度优先搜索的分簇算法的效果图}\vspace{-0.5em}
 \label{dfs_network_show}
 \end{figure}
-
-其中的蓝色的点表示微基站，如果微基站的节点之间有一条边相连，则两个基站同属于一个簇。
+其中的蓝色的点表示独立的微基站，粉色的点表示使用了多用户联合传输的微基站。
+如果微基站的节点之间有一条边相连，则两个基站同属于一个簇。
 可以看到，当两个基站的距离~$R_{i,j} < 5$~时，基站就会被连接在一起，共同的归于一个簇。
 验证了算法的正确性。
 由于密集热点区域的用户具有集中性，因此当两个基站之间的距离过远时，处在边缘的用户更少。
 除此之外，基站之间的距离较远，所服务的用户距离干扰基站的距离更远，有效的避免了基站相聚过近的干扰，以及处在边缘的用户的数量过多对性能的影响。
+
+对基于~k~-~均值的基站分簇算法进行仿真
+，对一片区域内的的微基站进行分簇，得到分簇结果，
+仿真的参数表如表~\ref{kmeans_show_sim_para}所示：
+\begin{table}[htbp]
+\caption{基于深度优先搜索的分簇算法的仿真参数}
+\label{kmeans_show_sim_para}
+\vspace{0.5em}\centering\wuhao
+\begin{tabular}{cccc}
+\toprule[1.5pt]
+参量 & & & 设置 \\
+\midrule[0.5pt]
+基站的分布~$\Phi$~ & & & 泊松点过程 \\
+泊松点过程的密度参数~$\lambda_s$~ & & & ~$0.01~\mathrm{m}^{-2}$~ \\
+区域的大小  & & & ~$100~\mathrm{m} \times 100~ \mathrm{m}$~ \\
+基站的个数~$n$~  & & & 100\\
+簇的个数~$k$~ & & & ~$20$~\\
+\bottomrule[1.5pt]
+\end{tabular}
+\end{table}
+
+选取的区域的大小为~$100~\mathrm{m} \times 100~ \mathrm{m}$~的正方形区域，
+正方形的区域中的基站部署为泊松点过程，密度参数~$\lambda_s=0.01~m^{-2}$，设置分簇的个数为~$20$~个。
+对以泊松点过程生成的基站采用基于~k~-~均值的基站分簇算法，得到的网络示意图如图~\ref{kmeans_network_show}~所示:
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.62\textwidth]{kmeans_network_show.pdf}
+\caption{基于~k~-~均值的分簇算法的效果图}\vspace{-0.5em}
+\label{kmeans_network_show}
+\end{figure}
+可以看到整个区域被泰森多边形分割，归属于同一个泰森多边形的基站作为一簇，簇内的微基站采用多用户联合传输算法，
+多边形内粉色的点表示联合起来的基站。可以看到基站均匀的被分割成了以均值为中心的区域。每个簇内大约有~5~个微基站。

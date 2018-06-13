@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -137,5 +137,11 @@ Yu Q, Wang J, Yang X, et al.
 Shannon C~E.
 \newblock A mathematical theory of communication[J].
 \newblock The Bell System Technical Journal, 1948, 27(4):623-656.
+
+\bibitem[Inf()]{InfoTheoryInference}
+.[S.l.]: [s.n.] .
+
+\bibitem[sta()]{statisticslearning}
+.[S.l.]: [s.n.] .
 
 \end{thebibliography}
