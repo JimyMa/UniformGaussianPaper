@@ -493,16 +493,16 @@ $\mathrm{SINR}$ & & & $-10 \sim 20$~dB \\
 根据公式~(\ref{SIR_r})，在干扰受限信道的情况下，用户的接收信干噪比近似等于用户的接收信干比，
 接收信干比与信道的衰减系数~$\alpha$，用户距离服务基站和干扰基站的距离，链路的信道系数共同决定。
 由于场景为平稳的瑞利信道，因此可以通过遍历容量去反映在网络中的不同位置上用户的信干噪比性能。
-在区域内，各个位置的遍历容量示意图如图~\ref{network_show}~所示。
-\begin{figure}[htbp]\label{network_show}
+在区域内，各个位置的遍历容量示意图如图~\ref{network_dis_show}~所示。
+\begin{figure}[htbp]
 \centering
 \includegraphics[width = 0.62\textwidth]{bs_station.pdf}
 \caption{网络的拓扑示意图}\vspace{-0.5em}
-\label{bs_dis}
+\label{network_dis_show}
 \end{figure}
 给定了泊松点过程的一次实现，既可以确定网络的遍历容量，遍历容量的表达式如~(\ref{e_capacity_formular})。
 网络的遍历容量的示意图如图~\ref{e_capacity_show}~所示。
-\begin{figure}[htbp]\label{network_show}
+\begin{figure}[htbp]\label{e_capacity_show}
 \centering
 \includegraphics[width = 0.98\textwidth]{e_capacity_hotmap.pdf}
 \caption{网络中每个位置的遍历容量示意图:~(左)~$\alpha=2$~(右)~$\alpha=4$}\vspace{-0.5em}

@@ -367,24 +367,68 @@ $d(~S_i,~M_j~)$~表示微基站~$S_i$~和均值~$M_j$~之间的距离。算法�
 由于算法并不是依据基站之间的关系进行分簇，因此也没有利用基站之间的拓扑结构这一信息。
 
 \BiSection{密集热点区域无线网络的簇内干扰消除与优化}{algorithm construction}
-%% TODO
 
+\BiSubsection{CRAN~架构下基于分布式预编码的簇内干扰管理}{Time diversity}
+为消除密集热点区域无线网络的簇内干扰，提出基于分布式迫零预编码的干扰消除技术。
+其中发射端采用~CRAN~架构，即将所有基站的基带处理单元集中在一起，构成基带处理单元池(~BBUs~)，
+在基站端退化为远端射频头(~RRHs~)，进行模数转换与射频收发功能，并将用户的信道状态信息
+传送到~BBUs，实现基于信道状态信息的迫零预编码。
+簇内干扰消除的原理框图如图~\ref{precode_inner_cluster_show}~所示：
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.85\textwidth]{precode_inner_cluster_show.pdf}
+\caption{CRAN~架构下基于分布式预编码的簇内干扰管理架构图}\vspace{-0.5em}
+\label{precode_inner_cluster_show}
+\end{figure}
+假设在一个簇内存在~$l$~个基站，在每个基站所覆盖的区域内随机选择一个用户即一个簇内
+同时对~$l$~个用户进行服务。
+在~BBUs~中对基带信号进行处理，待发射的信号向量为~$\mathbf{q}=\{~q_1,~q_2,\dots,~q_l~\}, ~q\in\{~\pm 1~\}$。
+在基于迫零预编码的簇内干扰管理算法中，首先要给待传送的信号进行功率分配。
+每个用户所分配的功率由功率分配因子~$\mathbf{p}$~决定。
+功率分配过后的信号~$\mathbf{x}=\{~p_1q_1,~p_2q_2,~\dots,~p_nq_n~\}$。
+对经过功率分配后的信号向量进行迫零预编码，得到待发送的信号~$\mathbf{s}=\mathbf{W}x$。
+其中迫零预编码的预编码矩阵
+~$\mathbf{W}=\mathbf{G}^{\mathrm{T}}(\mathbf{G}\mathbf{G}^{\mathrm{T}})^{-1}$。
+其中~$\mathbf{G}=\{g_{ij}\}_{~l~\times~ l}=R_{ij}^{-\alpha}h_{ij}$。其中~$R_{ij}$~
+为基站~$S_i$~和用户~$U_j$~之间的距离，$h_{ij}$~为瑞利信道下基站~$S_i$~和用户~$U_j$~
+的信道系数。
+得到了经过预编码矩阵得到的待发送信号~$\mathbf{s}=\{~s_1,~s_2,\dots,~s_l~\}$，基带信号的处理完成，
+对任意的~$i\in\{~1,~2,\dots,~l~\}$，$s_i$~表示需要微基站~$S_i$~去发送的信息。
+将发送信号~$\mathbf{s}$~通过前向回程链路传送给微基站~$\mathcal{S}$，
+此时不同用户的信息彼此之间相互正交，因此不会受到来由于使用同时同频资源而造成的用户之间的干扰。
 
+\BiSubsection{簇内用户的功率资源分配}{Time diversity}
+根据上一小节的内容，在进行预编码之前，首先需要进行功率分配。
+本小节提出两种功率分配方式，分别为等功率分配和最大化基站功率使用的功率分配。
+其中，等功率分配假设每个微基站的天线上所能承载的最大的功率已知，系统基于公平性的原则，
+希望每个用户分配到相同的功率。
+最大化功率使用的功率分配方法不需要每个用户分配到的功率均是相等的，
+而是希望尽可能的使用基站的功率，从而使得所有的用户分配到的总的功率最大化。
 
-
-
-
-
-
-
-
-
-
+等功率分配需要满足每个用户分配的功率是相等的。但经过预编码后信号需要满足功率约束条件。
+预编码矩阵~$\mathbf{W}$~可以写成分块列向量的形式
+~$\mathbf{W}=\{~\mathbf{w}_1,~\mathbf{w}_2,\dots,\mathbf{w}_l~\}$，
+假设微基站所能提供的最大功率为~$P$~则功率约束条件为：
+\begin{equation}\label{P_constrain}
+  {s_i}^2 = (\mathbf{w}_i \mathbf{x})^2 = \sum_{j=1}^l (w_{ij} p_j q_j)^2
+  = \sum_{j=1}^l (w_{ij} p_j)^2 \leq P ,~ i\in \{~1,~2, \dots, ~l~\}
+\end{equation}
+由于采用等功率分配，~$p_1=p_2=\cdots=p_l=p$~上式可以变形为：
+\begin{equation}
+  \sum_{j=1}^{l} (w_{ij}p)^2 \le P ,~ i\in \{~1,~2, \dots, ~l~\}
+\end{equation}
+根据功率分配约束，可以得到功率分配因子：
+\begin{equation}
+  p=\frac{1}{\min\{~\sum_{j=1}^{l} (w_{1j})^2,~\sum_{j=1}^{l} (w_{2j})^2,\dots,~\sum_{j=1}^{l} (w_{lj})^2~\}}
+\end{equation}
+由于在超密集组网场景中，网络为一个干扰受限的网络，因此对网络起主要影响的是基站之间的干扰。
+而对簇内采用了迫零预编码技术，簇内用户的信息在不同的向量空间当中。
+簇内的干扰完全的得到了消除，因此无需最大化
 
 \BiSection{密集热点区域无线网络优化的性能分析}{analysis}
 \BiSubsection{网络分簇算法的分析}{cluster}
 
-在第三章，我们给出了网络仿真的网络示意图~\ref{network_show}，
+在第三章，我们给出了网络仿真的网络示意图~\ref{network_dis_show}，
 对基于深度优先搜索算法的基站分簇算法得到的分簇结果进行仿真，
 仿真参数如表~\ref{dfs_show_sim_para}~所示：
 \begin{table}[htbp]
