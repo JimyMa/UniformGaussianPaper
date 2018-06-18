@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -103,24 +103,38 @@ Thiele L, Kurras M.
 \newblock Hierarchical precoding for ultra-dense heterogeneous networks[J].
 \newblock 2014:1286-1290.
 
-\bibitem[Zhang et al.(2018)]{Ucent}
+\bibitem[Zhang et al.(2018){\natexlab{a}}]{Ucent}
 Zhang Y, Bi S, Zhang Y~J~A.
 \newblock User-Centric Joint Transmission in Virtual-Cell-Based Ultra-Dense
   Networks[J].
 \newblock IEEE Transactions on Vehicular Technology, 2018, 67(5):4640-4644.
 
-\bibitem[Chen et al.(2017)]{CoMPUDN}
+\bibitem[Chen et al.(2017){\natexlab{a}}]{CoMPUDN}
 Chen Y~H, Chao H~L, Wu S~H, et al.
 \newblock Resource allocation with CoMP transmission in ultra dense cloud-based
   LTE small cell networks[J].
 \newblock 2017:1-5.
 
-\bibitem[Liu et al.(2017)]{UNOMAcent}
+\bibitem[Liu et al.(2017){\natexlab{a}}]{UNOMAcent}
 Liu Y, Li X, Yu F~R, et al.
 \newblock Grouping and Cooperating Among Access Points in User-Centric
   Ultra-Dense Networks With Non-Orthogonal Multiple Access[J].
 \newblock IEEE Journal on Selected Areas in Communications, 2017,
   35(10):2295-2311.
+
+\bibitem[Wu et al.(2017)]{edgeudn}
+Wu T, Li X, Ji H, et al.
+\newblock
+\newblock An Energy-Efficient Sleep Management Algorithm for UDN with Edge
+  Caching[C]//2017 IEEE Globecom Workshops (GC Wkshps).
+\newblock .[S.l.]: [s.n.] , 2017:1-5.
+
+\bibitem[Boljevic(2017)]{costudn}
+Boljevic S.
+\newblock
+\newblock Cost of optimal placement of a CHP plant within existing UDN[C]//2017
+  14th International Conference on the European Energy Market (EEM).
+\newblock .[S.l.]: [s.n.] , 2017:1-6.
 
 \bibitem[IMT-2020(5G)推进组(2015)]{5Gwhitebook}
 IMT-2020(5G)推进组.
@@ -133,15 +147,118 @@ Yu Q, Wang J, Yang X, et al.
   sharing in UDN[J].
 \newblock China Communications, 2015, 12(Supplement):104-112.
 
+\bibitem[Gao et al.(2016)]{channeludn}
+Gao Z, Dai L, Wang Z.
+\newblock
+\newblock Channel estimation for mmWave massive MIMO based access and backhaul
+  in ultra-dense network[C]//2016 IEEE International Conference on
+  Communications (ICC).
+\newblock .[S.l.]: [s.n.] , 2016:1-6.
+
+\bibitem[Alabbasi et al.(2018)]{greencran}
+Alabbasi A, Wang X, Cavdar C.
+\newblock Optimal Processing Allocation to Minimize Energy and Bandwidth
+  Consumption in Hybrid CRAN[J].
+\newblock IEEE Transactions on Green Communications and Networking, 2018,
+  2(2):545-555.
+
+\bibitem[Xu et al.(2018)]{clustercran}
+Xu H, Pan C, Xu W, et al.
+\newblock Robust Beamforming with Pilot Reuse Scheduling in a Heterogeneous
+  Cloud Radio Access Network[J].
+\newblock IEEE Transactions on Vehicular Technology, 2018:1-1.
+
+\bibitem[Huiyu et al.(2012)]{compcran}
+Huiyu Y, Naizheng Z, Yuyu Y, et al.
+\newblock
+\newblock Performance evaluation of coordinated multipoint reception in CRAN
+  under LTE-Advanced uplink[C]//7th International Conference on Communications
+  and Networking in China.
+\newblock .[S.l.]: [s.n.] , 2012:778-783.
+
+\bibitem[Chen et al.(2017){\natexlab{b}}]{mmimocran}
+Chen N, Rong B, Zhang X, et al.
+\newblock Scalable and Flexible Massive MIMO Precoding for 5G H-CRAN[J].
+\newblock IEEE Wireless Communications, 2017, 24(1):46-52.
+
+\bibitem[Xia et al.(2017)]{jthcran}
+Xia W, Zhang J, Quek T~Q~S, et al.
+\newblock
+\newblock Joint Optimization of Fronthaul Compression and Bandwidth Allocation
+  in Heterogeneous CRAN[C]//GLOBECOM 2017 - 2017 IEEE Global Communications
+  Conference.
+\newblock .[S.l.]: [s.n.] , 2017:1-6.
+
+\bibitem[Zhang et al.(2018){\natexlab{b}}]{d2dcran2}
+Zhang B, Mao X, Yu J~L, et al.
+\newblock Resource Allocation for 5G Heterogeneous Cloud Radio Access Networks
+  with D2D Communication: A Matching and Coalition Approach[J].
+\newblock IEEE Transactions on Vehicular Technology, 2018:1-1.
+
+\bibitem[Rahman et al.(2015)]{interference_lim_cran}
+Rahman M~M~U, Ghauch H, Imtiaz S, et al.
+\newblock
+\newblock RRH Clustering and Transmit Precoding for Interference-Limited 5G
+  CRAN Downlink[C]//2015 IEEE Globecom Workshops (GC Wkshps).
+\newblock .[S.l.]: [s.n.] , 2015:1-7.
+
+\bibitem[Wang et al.(2017)]{icccran}
+Wang X, Alabbasi A, Cavdar C.
+\newblock
+\newblock Interplay of energy and bandwidth consumption in CRAN with optimal
+  function split[C]//2017 IEEE International Conference on Communications
+  (ICC).
+\newblock .[S.l.]: [s.n.] , 2017:1-6.
+
+\bibitem[Zhao et al.(2017)]{jointaseeeopt}
+Zhao G, Chen S, Zhao L, et al.
+\newblock Joint Energy-Spectral-Efficiency Optimization of CoMP and BS
+  Deployment in Dense Large-Scale Cellular Networks[J].
+\newblock IEEE Transactions on Wireless Communications, 2017, 16(7):4832-4847.
+
+\bibitem[Liu et al.(2017){\natexlab{b}}]{compund2}
+Liu M, Teng Y, Song M.
+\newblock
+\newblock CoMP Handover Probability Analysis with Different Handover Schemes in
+  Ultra-Dense Networks[C]//2017 IEEE Wireless Communications and Networking
+  Conference (WCNC).
+\newblock .[S.l.]: [s.n.] , 2017{\natexlab{b}}:1-6.
+
+\bibitem[Jia et al.(2017)]{compca}
+Jia J, Deng Y, Chen J, et al.
+\newblock Availability Analysis and Optimization in CoMP and CA-enabled
+  HetNets[J].
+\newblock IEEE Transactions on Communications, 2017, 65(6):2438-2450.
+
+\bibitem[Chen et al.(2016)]{uplinkcomp}
+Chen F, Sun Y, Qin Y, et al.
+\newblock
+\newblock Checks and Balances: A Low-Complexity High-Gain Uplink Power
+  Controller for CoMP[C]//2016 IEEE Global Communications Conference
+  (GLOBECOM).
+\newblock .[S.l.]: [s.n.] , 2016:1-6.
+
+\bibitem[Tseng et al.(2016)]{compudn3}
+Tseng C~K, Wu S~H, Chao H~L, et al.
+\newblock
+\newblock An Effective Antenna Allocation for CoMP Transmission in Dense Small
+  Cell Networks[C]//2016 IEEE Global Communications Conference (GLOBECOM).
+\newblock .[S.l.]: [s.n.] , 2016:1-6.
+
 \bibitem[Shannon(1948)]{TheMathematicalTheoryOfCommunication}
 Shannon C~E.
 \newblock A mathematical theory of communication[J].
 \newblock The Bell System Technical Journal, 1948, 27(4):623-656.
 
-\bibitem[Inf()]{InfoTheoryInference}
-.[S.l.]: [s.n.] .
+\bibitem[Mackay(2003)]{InfoTheoryInference}
+Mackay D~J.
+\newblock
+\newblock Information Theory, Inference, and Learning Algorithm[M].[S.l.]:
+  Cambridge University, 2003.
 
-\bibitem[sta()]{statisticslearning}
-.[S.l.]: [s.n.] .
+\bibitem[李航(2012)]{statisticslearning}
+李航.
+\newblock
+\newblock 统计学习方法[M].[S.l.]: 清华大学出版社, 2012.
 
 \end{thebibliography}
