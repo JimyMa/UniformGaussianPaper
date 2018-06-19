@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -128,6 +128,14 @@ Wu T, Li X, Ji H, et al.
 \newblock An Energy-Efficient Sleep Management Algorithm for UDN with Edge
   Caching[C]//2017 IEEE Globecom Workshops (GC Wkshps).
 \newblock .[S.l.]: [s.n.] , 2017:1-5.
+
+\bibitem[Hu et al.(2017)]{datamaxudn}
+Hu B, Wang Y, Wang C.
+\newblock
+\newblock A maximum data transmission rate oriented dynamic APs grouping scheme
+  in user-centric UDN[C]//2017 International Symposium on Intelligent Signal
+  Processing and Communication Systems (ISPACS).
+\newblock .[S.l.]: [s.n.] , 2017:56-61.
 
 \bibitem[Boljevic(2017)]{costudn}
 Boljevic S.
