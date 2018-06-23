@@ -1,21 +1,130 @@
 % !Mode:: "TeX:UTF-8"
 
-\BiChapter{密集热点区域无线网络的研究基础}{architecture and system model}
+\BiChapter{基于格的微基站部署的性能分析}{architecture and system model}
 
-本章介绍密集热点区域无线网络研究的基础知识，首先介绍了超密集组网的定义，
-接着介绍超密集组网场景中可能用到的网络架构，
-其中包括CRAN架构和多用户多点联合传输架构，
-最后介绍无线网络分析的的重要的性能指标。
-为接下来的理论分析和算法优化打下基础。
+本章介绍基于格的微基站部署，
+这也是网络部署的一种基本的方法。
+该方法分为两个步骤，首先在服务区域~$\mathcal{D}$~中选定固定格点，
+然后在选定的格点上部署微基站。
+常见的基于格的微基站部署有环形部署，
+双环性部署，方格部署和六边形部署，
+下面分别对上述不同的基站部署的拓扑结构进行介绍和性能分析。
 
-\BiSection{超密集组网的定义}{Defination of UDNs}
+\BiSection{环形的基站部署}{Defination of UDNs}
+
+\BiSubsection{环形的基站部署的拓扑结构}{Defination of UDNs}
+环形基站部署将基站部署在一个圆环上，其特别适合大型比赛场馆，大型演唱会等场景下的基站部署。
+环形的基站部署方法的示意图如图~\ref{single_circle_bs_show}~所示，
+在区域~$\mathcal{D}$~上，选定半径~$R$，在半径为~$R$~的圆上均匀的部署~$N$~个基站，
+在图~\ref{single_circle_bs_show}~中，
+$\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
+部署基站的半径大小~$R=30\mathrm{m}$，基站的个数~$N=12$~个。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.62\textwidth]{single_circle_bs_station.pdf}
+\caption{环形基站部署的拓扑结构示意图}\vspace{-0.5em}
+\label{single_circle_bs_show}
+\end{figure}
+若微基站同时同频的传送信息，
+则由于在中心处的用户距所有基站的距离均比较近，
+因此在未采用任何基站协作的前提下，若以就近原则选择服务的基站，
+处在中心处的用户受到除服务基站以外的其他基站的干扰非常严重，
+但由于处在距离环比较近的用户距离服务基站的距离较近，因此接收信号较强，
+用户的接收信干噪比较好，处在圆环区域附近的用户的覆盖性能是较好的。
+在环形基站的部署当中，基站的个数~$N$~和圆环的大小~$R$~以及服务区域的面积的大小均是
+有关系的，由于网络模型复杂，不易对网络的各个性能求出闭合解，
+但是可以用蒙特卡洛仿真的方法分析网络的性能，下面对在不同的参数条件下的基站环形部署的性能进行分析。
+
+\BiSubsection{环形的基站部署的遍历容量热力图}{Defination of UDNs}
+对环形基站的遍历容量分布图进行蒙特卡洛仿真分析，
+仿真的参数表如表~\ref{single_circle_sinr_sim_para}~所示，
+\begin{table}[htbp]
+\caption{遍历容量的热力分布图的仿真参数}
+\label{single_circle_sinr_sim_para}
+\vspace{0.5em}\centering\wuhao
+\begin{tabular}{cccc}
+\toprule[1.5pt]
+参量 & & & 设置 \\
+\midrule[0.5pt]
+区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$~ \\
+信道的类型 & & &  瑞利衰落信道\\
+基站的个数~$N$~ & & &  12\\
+圆环的半径~$R$~ & & &  ${30\mathrm{m}}$\\
+信道衰落系数~$\alpha$~  & & & 2,~4\\
+\bottomrule[1.5pt]
+\end{tabular}
+\end{table}
+该仿真主要反应了瑞利信道下的区域内的各个位置的遍历容量的特性，
+而遍历容量是一个与信干比相关的量，
+因此仿真结果可以反应每个区域上的信干比的特性。
+基站的个数、圆环的大小、区域的大小固定，通过遍历容量热力分布图可以得到信道衰落系数对网络的遍历容量的性能的影响，
+采用蒙特卡洛仿真，得到的结果如图~\ref{single_circle_e_capacity_show}~所示，
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.98\textwidth]{single_circle_e_capacity_show_30_12.pdf}
+\caption{环形基站部署的遍历容量热力图:~(左)~$\alpha=2$~(右)~$\alpha=4$}\vspace{-0.5em}
+\label{single_circle_e_capacity_show}
+\end{figure}
+可以看到距离服务基站较近的用户的遍历容量较好，
+当~$\alpha=4$~时，距离微基站大概~$3\mathrm{m}$~以内的用户的遍历容量均大于~$10\mathrm{bps/Hz}$。
+整个区域的热力分布图呈现辐射状，信道衰减系数大的辐射的更远，处在中心处的用户的性能很差，
+遍历容量小于~$1\mathrm{bps/Hz}$。
+
+\BiSubsection{环形的基站部署的覆盖率的性能分析}{Defination of UDNs}
+我们在上一小节讨论了路径损耗因子对性能的影响，
+接下来对网络的覆盖率性能采用蒙特卡洛仿真分析，对网络的覆盖率性能进行分析，
+主要分析环形基站部署的两个重要指标，即圆环的半径~$R$和基站的个数~$N$对基站的覆盖率的影响。
+同时，由于用户在区域内的分布不一定是均匀的，因此需要对不同用户的分布情况进行分析，
+考虑用户的分布~$\Psi$~分别为随机分布和以微基站的位置坐标为均值的二维高斯分布的情况。
+仿真的参数表如表~\ref{single_circle_pc_sim_para}~所示，
+\begin{table}[htbp]
+\caption{遍历容量的热力分布图的仿真参数}
+\label{single_circle_pc_sim_para}
+\vspace{0.5em}\centering\wuhao
+\begin{tabular}{cccc}
+\toprule[1.5pt]
+参量 & & & 设置 \\
+\midrule[0.5pt]
+区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$ \\
+信道的类型 & & &  瑞利衰落信道\\
+基站的个数~$N$~ & & &  8, 16\\
+圆环的半径~$R$~ & & &  ${30\mathrm{m}},{50\mathrm{m}}$\\
+用户的分布~$\Psi$~ & & & 随机分布，二维高斯分布\\
+二维高斯分布的标准差~$\sigma$~ & & & ${5\mathrm{m}}$\\
+信道衰落系数~$\alpha$~  & & & 4\\
+\bottomrule[1.5pt]
+\end{tabular}
+\end{table}
+下面通过仿真的方法分析上述主要参数对覆盖率性能的影响。
+将表中的半径参数~$R$~和基站个数参数~$N$~进行全组合，
+得到~4~种情况，在用户分布为随机分布的情况下的覆盖率仿真曲线，
+如图~\ref{pc_random_single_circle_r_n_uniform}~所示，
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.62\textwidth]{pc_random_single_circle_r_n_uniform.pdf}
+\caption{用户为随机分布下环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
+\label{pc_random_single_circle_r_n_uniform}
+\end{figure}
+通过性能曲线可以看出，基站的半径为影响服务区域性能的主要因素，但网络中的总体的覆盖率性能在
+如上参数条件下的性能较差，大部分用户的信干比都在~$0\mathrm{dB}$~以下。
+在用户分布为以基站坐标为均值的混合二维高斯分布情况下的覆盖率仿真曲线，
+如图~\ref{pc_random_single_circle_r_n_gaussian}~所示，
+可以看到此时网络的性能有了明显的提升，基站数对性能的影响较大，
+从仿真图上可以看出，半径小的性能更好，基站数目多的情况下性能越好。
+
 
 超密集组网技术是5G中的关键的技术，用于满足大量用户的区域内，用户的高速率传输的需求\citeup{edgeudn}。
 密集热点区域无线网络场景下，由于系统中的用户较多，容量需求大，因此，需要网络能够提供更高的单位面积的频谱利用率\citeup{datamaxudn}。
 同时，通信已经成为世界上最耗能的应用\citeup{costudn}，因此要想办法在满足用户要求的同时，尽可能的降低能耗，从而得到较高的能耗比，即网络需要有很高的单位面积能量谱效率。
-
 超密集组网(UDN)作为~5G~的关键技术之一,对其概念的描述,网络布置的探索,再到性能分析、具体干扰管理算法的研究,随着对~5G~标准的不断探索,这些方面的研究也越来越深入。
 未来通信系统服务需求的增加,且需要满足更好的用户体验,系统容量的增加就显得日益迫切。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.62\textwidth]{pc_random_single_circle_r_n_gaussian.pdf}
+\caption{用户为混合二维高斯分布下环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
+\label{pc_random_single_circle_r_n_gaussian}
+\end{figure}
+
 
 根据现有的研究结果进行分析,超密集组网~UDN~在~5G~中的定义是:发射功率较低的小型的接入点,网络的拓扑结构不做精确的规划要求,网络中基站的密集程度很高的区域部署,即可以构成一个超密集网络\citeup{5Gwhitebook}。
 采用超密集组网技术，发射机和接收机之间的距离大大降低,减少了路径损耗，单位面积内可以服务的用户量大大增多，提高频谱效率,小区中的流量的分配更加灵活，有效的提升了网络效率\citeup{spsharing} 。

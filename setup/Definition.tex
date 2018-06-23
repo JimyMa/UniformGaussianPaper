@@ -55,6 +55,13 @@
 \addcontentsline{toe}{chapter}{\bfseries \xiaosi #2}  \chapter*{#1}
 }
 
+\newcommand{\BiAppendixChapterhehe}[2] % 该附录命令适用于发表文章，简历等
+{\phantomsection
+\markboth{#1}{#1}
+\addcontentsline{toc}{chapter}{\xiaosi #1}
+\addcontentsline{toe}{chapter}{\bfseries \xiaosi #2}  \chapter*{#1}
+}
+
 \newcommand{\BiAppChapter}[2]    % 该附录命令适用于有章节的完整附录
 {\phantomsection
  \chapter{#1}
