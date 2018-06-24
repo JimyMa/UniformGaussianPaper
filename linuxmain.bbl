@@ -1,4 +1,4 @@
-\begin{thebibliography}{42}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -63,65 +63,6 @@ Li C, Zhang J, Haenggi M, et al.
   Networks[J].
 \newblock IEEE Transactions on Communications, 2015, 63(4):1419-1431.
 
-\bibitem[Ding et al.(2015)]{cbsdn}
-Ding J, Yu R, Zhang Y, et al.
-\newblock Service provider competition and cooperation in cloud-based software
-  defined wireless networks[J].
-\newblock IEEE Communications Magazine, 2015, 53(11):134-140.
-
-\bibitem[Pan et al.(2017)]{CRANUDN}
-Pan C, Zhu H, Gomes N~J, et al.
-\newblock Joint User Selection and Energy Minimization for Ultra-Dense
-  Multi-channel C-RAN With Incomplete CSI[J].
-\newblock IEEE Journal on Selected Areas in Communications, 2017,
-  35(8):1809-1824.
-
-\bibitem[Stephen and Zhang(2017)]{MMCRAN}
-Stephen R~G, Zhang R.
-\newblock Millimeter-Wave CRAN with Lens Antenna Arrays[J].
-\newblock 2017:1-6.
-
-\bibitem[Huawei(2005)]{yangxuezhi}
-Huawei.
-\newblock Soft frequency reuse scheme for UTRAN LTE[J].
-\newblock 2005:1-3.
-
-\bibitem[Xue et al.(2016)]{DisPrecode}
-Xue Y, Tian Y, Yang C.
-\newblock Distributed precoding in ultra-dense network with dynamic user
-  access[J].
-\newblock 2016:1-6.
-
-\bibitem[Kurras et al.(2015)]{LayerPrecode}
-Kurras M, Shehata M, Hassan K, et al.
-\newblock Spatial interference management with hierarchical precoding in
-  ultra-dense heterogeneous networks[J].
-\newblock 2015:520-526.
-
-\bibitem[Thiele and Kurras(2014)]{Layer2Precode}
-Thiele L, Kurras M.
-\newblock Hierarchical precoding for ultra-dense heterogeneous networks[J].
-\newblock 2014:1286-1290.
-
-\bibitem[Zhang et al.(2018){\natexlab{a}}]{Ucent}
-Zhang Y, Bi S, Zhang Y~J~A.
-\newblock User-Centric Joint Transmission in Virtual-Cell-Based Ultra-Dense
-  Networks[J].
-\newblock IEEE Transactions on Vehicular Technology, 2018, 67(5):4640-4644.
-
-\bibitem[Chen et al.(2017){\natexlab{a}}]{CoMPUDN}
-Chen Y~H, Chao H~L, Wu S~H, et al.
-\newblock Resource allocation with CoMP transmission in ultra dense cloud-based
-  LTE small cell networks[J].
-\newblock 2017:1-5.
-
-\bibitem[Liu et al.(2017){\natexlab{a}}]{UNOMAcent}
-Liu Y, Li X, Yu F~R, et al.
-\newblock Grouping and Cooperating Among Access Points in User-Centric
-  Ultra-Dense Networks With Non-Orthogonal Multiple Access[J].
-\newblock IEEE Journal on Selected Areas in Communications, 2017,
-  35(10):2295-2311.
-
 \bibitem[Wu et al.(2017)]{edgeudn}
 Wu T, Li X, Ji H, et al.
 \newblock
@@ -184,7 +125,7 @@ Huiyu Y, Naizheng Z, Yuyu Y, et al.
   and Networking in China.
 \newblock .[S.l.]: [s.n.] , 2012:778-783.
 
-\bibitem[Chen et al.(2017){\natexlab{b}}]{mmimocran}
+\bibitem[Chen et al.(2017){\natexlab{a}}]{mmimocran}
 Chen N, Rong B, Zhang X, et al.
 \newblock Scalable and Flexible Massive MIMO Precoding for 5G H-CRAN[J].
 \newblock IEEE Wireless Communications, 2017, 24(1):46-52.
@@ -197,7 +138,7 @@ Xia W, Zhang J, Quek T~Q~S, et al.
   Conference.
 \newblock .[S.l.]: [s.n.] , 2017:1-6.
 
-\bibitem[Zhang et al.(2018){\natexlab{b}}]{d2dcran2}
+\bibitem[Zhang et al.(2018){\natexlab{a}}]{d2dcran2}
 Zhang B, Mao X, Yu J~L, et al.
 \newblock Resource Allocation for 5G Heterogeneous Cloud Radio Access Networks
   with D2D Communication: A Matching and Coalition Approach[J].
@@ -224,13 +165,13 @@ Zhao G, Chen S, Zhao L, et al.
   Deployment in Dense Large-Scale Cellular Networks[J].
 \newblock IEEE Transactions on Wireless Communications, 2017, 16(7):4832-4847.
 
-\bibitem[Liu et al.(2017){\natexlab{b}}]{compund2}
+\bibitem[Liu et al.(2017){\natexlab{a}}]{compund2}
 Liu M, Teng Y, Song M.
 \newblock
 \newblock CoMP Handover Probability Analysis with Different Handover Schemes in
   Ultra-Dense Networks[C]//2017 IEEE Wireless Communications and Networking
   Conference (WCNC).
-\newblock .[S.l.]: [s.n.] , 2017{\natexlab{b}}:1-6.
+\newblock .[S.l.]: [s.n.] , 2017{\natexlab{a}}:1-6.
 
 \bibitem[Jia et al.(2017)]{compca}
 Jia J, Deng Y, Chen J, et al.
@@ -252,6 +193,47 @@ Tseng C~K, Wu S~H, Chao H~L, et al.
 \newblock An Effective Antenna Allocation for CoMP Transmission in Dense Small
   Cell Networks[C]//2016 IEEE Global Communications Conference (GLOBECOM).
 \newblock .[S.l.]: [s.n.] , 2016:1-6.
+
+\bibitem[Huawei(2005)]{yangxuezhi}
+Huawei.
+\newblock Soft frequency reuse scheme for UTRAN LTE[J].
+\newblock 2005:1-3.
+
+\bibitem[Xue et al.(2016)]{DisPrecode}
+Xue Y, Tian Y, Yang C.
+\newblock Distributed precoding in ultra-dense network with dynamic user
+  access[J].
+\newblock 2016:1-6.
+
+\bibitem[Kurras et al.(2015)]{LayerPrecode}
+Kurras M, Shehata M, Hassan K, et al.
+\newblock Spatial interference management with hierarchical precoding in
+  ultra-dense heterogeneous networks[J].
+\newblock 2015:520-526.
+
+\bibitem[Thiele and Kurras(2014)]{Layer2Precode}
+Thiele L, Kurras M.
+\newblock Hierarchical precoding for ultra-dense heterogeneous networks[J].
+\newblock 2014:1286-1290.
+
+\bibitem[Zhang et al.(2018){\natexlab{b}}]{Ucent}
+Zhang Y, Bi S, Zhang Y~J~A.
+\newblock User-Centric Joint Transmission in Virtual-Cell-Based Ultra-Dense
+  Networks[J].
+\newblock IEEE Transactions on Vehicular Technology, 2018, 67(5):4640-4644.
+
+\bibitem[Chen et al.(2017){\natexlab{b}}]{CoMPUDN}
+Chen Y~H, Chao H~L, Wu S~H, et al.
+\newblock Resource allocation with CoMP transmission in ultra dense cloud-based
+  LTE small cell networks[J].
+\newblock 2017:1-5.
+
+\bibitem[Liu et al.(2017){\natexlab{b}}]{UNOMAcent}
+Liu Y, Li X, Yu F~R, et al.
+\newblock Grouping and Cooperating Among Access Points in User-Centric
+  Ultra-Dense Networks With Non-Orthogonal Multiple Access[J].
+\newblock IEEE Journal on Selected Areas in Communications, 2017,
+  35(10):2295-2311.
 
 \bibitem[Shannon(1948)]{TheMathematicalTheoryOfCommunication}
 Shannon C~E.
