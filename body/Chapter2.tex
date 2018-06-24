@@ -97,20 +97,67 @@ $\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
 \end{table}
 下面通过仿真的方法分析上述主要参数对覆盖率性能的影响。
 将表中的半径参数~$R$~和基站个数参数~$N$~进行全组合，
-得到~4~种情况，在用户分布为随机分布的情况下的覆盖率仿真曲线，
-如图~\ref{pc_random_single_circle_r_n_uniform}~所示，
+得到~4~种情况，
+覆盖率性能的曲线如图~\ref{pc_random_single_circle_r_n}~所示，
+在用户分布为随机分布的情况下的覆盖率仿真曲线如图~\ref{pc_random_single_circle_r_n}~(a)所示，
 \begin{figure}[htbp]
 \centering
-\includegraphics[width = 0.62\textwidth]{pc_random_single_circle_r_n_uniform.pdf}
-\caption{用户为随机分布下环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
-\label{pc_random_single_circle_r_n_uniform}
+\includegraphics[width = 0.90\textwidth]{pc_random_single_circle_r_n.pdf}
+\caption{环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
+\label{pc_random_single_circle_r_n}
 \end{figure}
-通过性能曲线可以看出，基站的半径为影响服务区域性能的主要因素，但网络中的总体的覆盖率性能在
-如上参数条件下的性能较差，大部分用户的信干比都在~$0\mathrm{dB}$~以下。
+通过性能曲线可以看出，总体来讲，基站数目~$N$~越多，部署基站的半径~$R$~越小，则覆盖率的性能越差，
+低信干比门限下，受半径~$R$~影响更强烈，
+高信干比门限下，受基站数~$N$~影响更强烈。
 在用户分布为以基站坐标为均值的混合二维高斯分布情况下的覆盖率仿真曲线，
-如图~\ref{pc_random_single_circle_r_n_gaussian}~所示，
-可以看到此时网络的性能有了明显的提升，基站数对性能的影响较大，
-从仿真图上可以看出，半径小的性能更好，基站数目多的情况下性能越好。
+如图~\ref{pc_random_single_circle_r_n}~(b)所示，
+同样是基站数目~$N$~越多，部署基站的半径~$R$~越小，则覆盖率的性能越差，
+但用户为混合二维高斯分布情况下基站数~$N$~和半径~$R$~对网络覆盖率性能的影响大致上相同，
+$N=8,R=25\mathrm{m}$~时的情况和$N=16,R=50\mathrm{m}$~时，网络的覆盖率性能大体上是相同的。
+也可以看到此时网络的覆盖率性能和用户分布随机的情况相比有了明显的好转，
+当~$N=8,R=50\mathrm{m}$~时，网络在$5\mathrm{dB}$的覆盖率甚至接近1。
+
+图~\ref{pc_random_single_circle_r_n}~给出了特定的~$N$~和~$R$~的情况下的覆盖率与信干比的关系曲线，
+从曲线中，我们可以看出当~$N=8, ~12$~和~$R=25.0,~50.0\mathrm{m}$~下，网络的覆盖率的具体情况，
+但曲线并不能反应覆盖率随~$N$~和~$R$~的变化的关系，
+为了得到覆盖率与~$N$~和~$R$~的关系，
+选定信干比的典型值~$0\mathrm{dB}$，$3\mathrm{dB}$，$5\mathrm{dB}$时，
+可以得到覆盖率与~$R$~和~$N$~的关系的曲面图，
+仿真的参数表如表~\ref{pc_random_single_circle_r_n_table}~所示，
+\begin{table}[htbp]
+\caption{覆盖率与~$R$~和~$N$~的关系的仿真参数}
+\label{pc_random_single_circle_r_n_table}
+\vspace{0.5em}\centering\wuhao
+\begin{tabular}{cccc}
+\toprule[1.5pt]
+参量 & & & 设置 \\
+\midrule[0.5pt]
+区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$ \\
+信道的类型 & & &  瑞利衰落信道\\
+基站的个数~$N$~ & & &  $2\sim20$\\
+圆环的半径~$R$~ & & &  $1.0\sim 50\mathrm{m}$\\
+信干比门限~$\delta$~  & & & ~$0\mathrm{dB}$，$3\mathrm{dB}$，$5\mathrm{dB}$\\
+用户的分布~$\Psi$~ & & & 随机分布，二维高斯分布\\
+二维高斯分布的标准差~$\sigma$~ & & & ${5\mathrm{m}}$\\
+信道衰落系数~$\alpha$~  & & & 4.0\\
+\bottomrule[1.5pt]
+\end{tabular}
+\end{table}
+仿真得到的曲面图如图~\ref{pc_random_single_circle_r_n_face}~所示，
+可以看到当用户的分布为随机分布的情况下，覆盖率随着基站数的变化大体上是逐渐降低的，
+与之前讨论得到的结果是一致的，但随着半径的变化不再是单调的，说明覆盖率的性能随着部署半径的增大先增大后减小，
+最优的部署半径的值大概为~$R = 40~\mathrm{m}$~左右。
+当用户的分布服从混合二维高斯分布的情况下，覆盖率随着基站数目~$N$~越多，部署基站的半径~$R$~越小，则覆盖率的性能越差，
+且二者的对覆盖率的影响程度基本相同，与之前分析的结果是一致的。
+在实际的部署中，可以根据覆盖率的需求合理的设定信干比门限，在设定了信干比门限的情况下，
+通过图~\ref{pc_random_single_circle_r_n_face}~即可得到环形基站部署方法下使覆盖率性能达到最优的基站数~$N$~
+和部署半径~$R$。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.98\textwidth]{pc_random_single_circle_r_n_face.pdf}
+\caption{环形基站部署的覆盖率受基站数和部署半径的影响}\vspace{-0.5em}
+\label{pc_random_single_circle_r_n_face}
+\end{figure}
 
 
 超密集组网技术是5G中的关键的技术，用于满足大量用户的区域内，用户的高速率传输的需求\citeup{edgeudn}。
@@ -118,13 +165,6 @@ $\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
 同时，通信已经成为世界上最耗能的应用\citeup{costudn}，因此要想办法在满足用户要求的同时，尽可能的降低能耗，从而得到较高的能耗比，即网络需要有很高的单位面积能量谱效率。
 超密集组网(UDN)作为~5G~的关键技术之一,对其概念的描述,网络布置的探索,再到性能分析、具体干扰管理算法的研究,随着对~5G~标准的不断探索,这些方面的研究也越来越深入。
 未来通信系统服务需求的增加,且需要满足更好的用户体验,系统容量的增加就显得日益迫切。
-\begin{figure}[htbp]
-\centering
-\includegraphics[width = 0.62\textwidth]{pc_random_single_circle_r_n_gaussian.pdf}
-\caption{用户为混合二维高斯分布下环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
-\label{pc_random_single_circle_r_n_gaussian}
-\end{figure}
-
 
 根据现有的研究结果进行分析,超密集组网~UDN~在~5G~中的定义是:发射功率较低的小型的接入点,网络的拓扑结构不做精确的规划要求,网络中基站的密集程度很高的区域部署,即可以构成一个超密集网络\citeup{5Gwhitebook}。
 采用超密集组网技术，发射机和接收机之间的距离大大降低,减少了路径损耗，单位面积内可以服务的用户量大大增多，提高频谱效率,小区中的流量的分配更加灵活，有效的提升了网络效率\citeup{spsharing} 。
