@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{34}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,13 +16,6 @@ Hu W~C, Huang N~H, Chiueh T~D.
 Sadr S, Adve R~S.
 \newblock Partially-Distributed Resource Allocation in Small-Cell Networks[J].
 \newblock IEEE Transactions on Wireless Communications, 2014, 13(12):6851-6862.
-
-\bibitem[Du et al.(2017)]{condesign}
-Du J, Gelenbe E, Jiang C, et al.
-\newblock Contract Design for Traffic Offloading and Resource Allocation in
-  Heterogeneous Ultra-Dense Networks[J].
-\newblock IEEE Journal on Selected Areas in Communications, 2017,
-  35(11):2457-2467.
 
 \bibitem[Andrews et al.(2011)]{ATractable}
 Andrews J~G, Baccelli F, Ganti R~K.
@@ -63,13 +56,6 @@ Li C, Zhang J, Haenggi M, et al.
   Networks[J].
 \newblock IEEE Transactions on Communications, 2015, 63(4):1419-1431.
 
-\bibitem[Wu et al.(2017)]{edgeudn}
-Wu T, Li X, Ji H, et al.
-\newblock
-\newblock An Energy-Efficient Sleep Management Algorithm for UDN with Edge
-  Caching[C]//2017 IEEE Globecom Workshops (GC Wkshps).
-\newblock .[S.l.]: [s.n.] , 2017:1-5.
-
 \bibitem[Hu et al.(2017)]{datamaxudn}
 Hu B, Wang Y, Wang C.
 \newblock
@@ -84,25 +70,6 @@ Boljevic S.
 \newblock Cost of optimal placement of a CHP plant within existing UDN[C]//2017
   14th International Conference on the European Energy Market (EEM).
 \newblock .[S.l.]: [s.n.] , 2017:1-6.
-
-\bibitem[IMT-2020(5G)推进组(2015)]{5Gwhitebook}
-IMT-2020(5G)推进组.
-\newblock 5G 愿景与需求白皮书[J].
-\newblock http://www.imt-2020.org.cn/zh/documents/listByQuery, 2015.
-
-\bibitem[Yu et al.(2015)]{spsharing}
-Yu Q, Wang J, Yang X, et al.
-\newblock Inter-operator interference coordination for co-primary spectrum
-  sharing in UDN[J].
-\newblock China Communications, 2015, 12(Supplement):104-112.
-
-\bibitem[Gao et al.(2016)]{channeludn}
-Gao Z, Dai L, Wang Z.
-\newblock
-\newblock Channel estimation for mmWave massive MIMO based access and backhaul
-  in ultra-dense network[C]//2016 IEEE International Conference on
-  Communications (ICC).
-\newblock .[S.l.]: [s.n.] , 2016:1-6.
 
 \bibitem[Alabbasi et al.(2018)]{greencran}
 Alabbasi A, Wang X, Cavdar C.
