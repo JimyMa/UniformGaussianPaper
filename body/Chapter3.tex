@@ -1,16 +1,12 @@
 % !Mode:: "TeX:UTF-8"
 
-\BiChapter{密集热点区域无线网络的性能分析}{Performace Analysis}
+\BiChapter{非规则的为基站部署的性能分析}{Performace Analysis}
 
 论文的第二章已经介绍了密集热点区域无线网络的定义，根据密集热点区域无线网络的定义，我们就可以构造密集热点区域无线网络的网络模型。
-构造密集热点区域无线网络的模型需要从四个方面考虑，即基站的拓扑结构，用户统计分布，信道建模与网络架构建模。在本章中，主要考虑前三个方面。
+构造密集热点区域无线网络的模型需要从四个方面考虑，即基站的拓扑结构，用户统计分布，信道建模与网络架构建模。在本章中，主要考虑前三个方面，
+通过对密集热点区域无线网络的系统建模，即可对密集热点区域无线网络的下行链路进行分析。通过性能分析，我们可以得到用户的信干比，网络的覆盖率，网络的单位面积频谱利用率等性能指标。
 
-在第三章，通过对密集热点区域无线网络的系统建模，即可对密集热点区域无线网络的下行链路进行分析。通过性能分析，我们可以得到用户的信干比，网络的覆盖率，网络的单位面积频谱利用率等性能指标。
-
-在第四章，着重考虑密集热点区域无线网络的网络架构，对密集热点区域无线网络的性能进行优化，引入提出的资源管理和调度算法，网络的覆盖率，服务用户数，单位面积频谱利用率，单位面积能量谱利用率将进一步提高。
-
-
-\BiSection{密集热点区域无线网络的系统建模}{System Model}
+\BiSection{非规则基站部署的系统建模}{System Model}
 本小节对密集热点区域无线网络进行系统建模，主要包括基站的参数与拓扑结构的分析与建模，
 用户的在服务区内的统计特性建模以及信道建模。
 本论文主要考虑单小区，小区中配备有多个微基站。
@@ -18,7 +14,7 @@
 经过信道传送至用户侧，用户在进行接收、解调、解码等过程将信息接收。
 宏基站和微基站采用不同的频谱资源。
 假设小区为的区域面积为~$A$。用户与发射基站建立的链路受到大尺度衰落的影响，路径损耗系数为~$\alpha$，信道噪声为加性高斯白噪声，噪声的功率为~$N$，
-信道类型为瑞利信道，信道系数~$h$~服从单位指数分布，记做~$h\sim exp(1)$。$h$~的概率密度分布函数为：
+信道类型为瑞利信道，信道系数为瑞利信道对发射功率的衰减~$h$~服从单位指数分布，记做~$h\sim exp(1)$。$h$~的概率密度分布函数为：
 \begin{equation}\label{h_pdf}
   f_H(h) = \exp(-h)
 \end{equation}
@@ -124,11 +120,9 @@
 \end{equation}
 其中~$R$~为用户距基站的距离。
 
-\BiSection{超密集组网的性能分析}{performance analysis}
+\BiSection{非规则网络的性能分析}{performance analysis}
 
 本小节对超密集组网场景的模型进行性能分析。主要分析网络的信干噪比，网络的覆盖率以及网络的单位面积频谱利用率。覆盖率和单位面积频谱利用率的概念已在第二章中给出。
-
-小区与用户的参数表总结如下：
 
 \BiSubsection{小区中用户的遍历容量}{SINR}
 
@@ -195,12 +189,12 @@ $h$~服从单位指数分布，记做~$h\sim exp(1)$。
 
 即根据全概率公式，总的覆盖率可以分解为
 
-(1)~ 事件1：所观测用户的服务基站即为所属的热点的基站，且该用户能达到覆盖所需的信干噪比。
+事件1：所观测用户的服务基站即为所属的热点的基站，且该用户能达到覆盖所需的信干噪比。
 
-(2)~ 事件2：当所观测用户的服务基站为其他基站且该用户能达到覆盖所需的信干噪比。
+事件2：当所观测用户的服务基站为其他基站且该用户能达到覆盖所需的信干噪比。
 
 这两个事件概率的加和。
-根据~(1)~和~(2)，可以将信干噪比大于门限的概率改写为两个部分，表达式如式~(\ref{P_SINR_2Part})~所示：
+可以将信干噪比大于门限的概率改写为两个部分，表达式如式~(\ref{P_SINR_2Part})~所示：
 \begin{equation}\label{P_SINR_2Part}
   \begin{aligned}
   \mathbb{P}[\mathrm{SINR}>T \mid r] =& \mathbb{P}[\mathrm{SINR}>T \mid r, r < D] \mathbb{P}[r<D]\\
@@ -364,35 +358,6 @@ p_c(T,~\lambda,~\alpha,~\sigma) = \frac{1}{1+\rho(T,\alpha)} + \frac{\rho(T,\alp
 $\rho(T,\alpha)$~的定义式为式~(\ref{rho})。
 $T$~为给定的信干噪比的门限，$\lambda_s$为服务区域内基站的密度。$\alpha$~为信道衰落系数。$\sigma$~为用户围绕热点分布的标准差的参数。
 等式的前半部分与\cite{ATractable}给出的公式相同，为当用户的分布为随机分布时的覆盖率。
-通过前面的分析推导，可以得到定理~\ref{pc_theorem}：
-\begin{theorem}\label{pc_theorem}
-  在二维的自由空间中，微基站的部署是泊松点过程~$\Phi$~，微基站的密度为~$\lambda_s$，基站的个数为~$n$~。
-  用户的分布服从以其所围绕的基站的坐标为均值，$\sigma^2$为方差的二维高斯分布。
-  用户选择距离其最近的基站作为服务基站，其他的基站作为干扰基站。
-  则网络的覆盖率为：
-  \begin{equation}
-    \begin{aligned}\label{pc_expand_rd_int_expand_complex}
-    &p_c(T,~\lambda,~\alpha,~\sigma)\\
-    &{=}\int_0^\infty  \int_D^{\infty}   \exp\left(-\pi r^2\lambda_s\  \rho(T,\alpha)  \right) f(D)    \mathrm{d} D f(r) \mathrm{d} r\\
-    & \quad + \int_0^\infty  \int_D^{\infty}   \frac{1}{1+ T D ^\alpha r^{-\alpha}} \exp\left(-\pi D ^2 \lambda_s\ \frac{n}{n-1} \rho(T,\alpha)\right) f(D)    \mathrm{d} D f(r) \mathrm{d} r\\
-    \end{aligned}
-  \end{equation}
-  其中，
-  \begin{equation}
-    f(D) = e^{-\lambda_s}\pi D^2 2 \pi \lambda_s D
-  \end{equation}
-  \begin{equation}
-    f(r) = \frac{r}{\sigma^2}\exp(-\frac{r^2}{2\sigma^2})
-  \end{equation}
-  分别为用户距离最近的基站和距离和微基站~$S_0$~距离最近的基站~$S_i$~的距离的概率密度分布函数。
-  \begin{equation}\label{rho}
-    \rho(T,\alpha) = T ^{1/\alpha} \int_{T^{-2/\alpha}}^{\infty} \frac{1}{1+u^{\alpha/2}}\mathrm{d}u
-  \end{equation}
-  可对~$p_c$~进行合理的近似，得到渐进的上界，近似的表达式为：
-  \begin{equation}\label{pc_expand_rd_int_expand_simple}
-  p_c(T,~\lambda,~\alpha,~\sigma) = \frac{1}{1+\rho(T,\alpha)} + \frac{\rho(T,\alpha)}{1+\rho(T,\alpha)}\cdot\frac{1}{2\pi\sigma^2\lambda_s(1+\rho(T,\alpha))+1}
-  \end{equation}
-\end{theorem}
 
 可以看到，该场景下的区域覆盖率主要与微基站用户分布的方差，基站的密度，信道的路径损耗因数有关系。
 
@@ -404,6 +369,7 @@ $T$~为给定的信干噪比的门限，$\lambda_s$为服务区域内基站的�
 \begin{equation}\label{lambda_to_infty}
   \lim_{\lambda_s \rightarrow \infty} p_c(T,\lambda_s,\alpha,\sigma) = \frac{1}{1+\rho(T, \alpha)}
 \end{equation}
+
 (3) ~覆盖率随着用户分布的方差的增大而减少，
 当表示用户分散程度的用户分布的方差趋于无穷大的情况下，
 小区的覆盖率将近似等于在小区中用户服从随机分布的情况的覆盖率。
@@ -433,26 +399,17 @@ $T$~为给定的信干噪比的门限，$\lambda_s$为服务区域内基站的�
              &= \lambda_s\int_{t>0} p_c(2^{t}-1,\lambda_s,\alpha,\sigma) \mathrm{d} t \\
   \end{aligned}
 \end{equation}
-带入公式~(\ref{pc_expand_rd_int_expand_simple})，即可得到定理~\ref{ASE}：
-\begin{theorem}\label{ASE}
-  在二维的自由空间中，微基站的部署是泊松点过程~$\Phi$~，微基站的密度为~$\lambda_s$，基站的个数为~$n$~。
-  用户的分布服从以其所围绕的基站的坐标为均值，$\sigma^2$为方差的二维高斯分布。
-  用户选择距离其最近的基站作为服务基站，其他的基站作为干扰基站。
-  则网络的单位面积频谱效率~$\eta_{ASE}$~为：
-  \begin{equation}\label{ASE_pc_expand}
-    \begin{aligned}
-    \eta_{ASE} =& \lambda_s\int_{t>0} \frac{1}{1+\rho(2 ^ {t}-1,\alpha)} \\
-                &+ \frac{\rho(2 ^ {t}-1,\alpha)}{1+\rho(2 ^ {t}-1,\alpha)}\cdot\frac{1}{2\pi\sigma^2\lambda_s(1+\rho(2 ^ {t}-1,\alpha))+1}  \mathrm{d} t
-    \end{aligned}
-  \end{equation}
-\end{theorem}
 
 可以看出，随着方差逐渐增大，场景的区域面积谱效率越来越接近均匀分布的场景。
 在热点场景下，区域面积谱效率首先随着基站密度的增加迅速增加，之后随着基站密度的增加区域面积谱效率呈现线性的增加。
 
 \BiSection{密集热点区域无线网络性能的仿真分析}{System Model}
-基于前两节的阐述和分析，这一节对密集热点区域无线网络的系统性能应用~Python3.5~进行仿真分析，对第二小节得到的结果给出理论曲线和仿真曲线，
-对性能分析的结果进行验证与定性定量的分析。具体的仿真参数如表~\ref{pc_sim_para}~所示。
+基于前两节的阐述和分析，这一节对密集热点区域无线网络的系统性能应用~Python3.5~编程语言，通过编写的
+超密集组网仿真工具包，可以对随机网络的性能进行有效分析。
+对第二小节得到的结果给出理论曲线和仿真曲线，
+对性能分析的结果进行验证与定性定量的分析。
+具体的仿真参数如表~\ref{pc_sim_para}~所示。
+
 \begin{table}[htbp]
 \caption{密集热点区域无线网络的仿真参数设定}
 \label{pc_sim_para}
@@ -461,64 +418,52 @@ $T$~为给定的信干噪比的门限，$\lambda_s$为服务区域内基站的�
 \toprule[1.5pt]
 参量 & & & 设置 \\
 \midrule[0.5pt]
-基站的分布~$\Phi$~ & & & 泊松点过程 \\
-用户的分布~$\Psi$~  & & & 混合二维高斯分布\\
-用户的分散程度~$\sigma$~ & & &  ~$5\mathrm{m}$~ \\
 区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$~ \\
+基站的分布~$\Phi$~ & & & 泊松点过程 \\
+信道特性 & & & 瑞利衰落信道\\
+用户的分布~$\Psi$~  & & & 混合二维高斯分布\\
+信道衰落系数~$\alpha$~  & & &  2,~4\\
+用户的分散程度~$\sigma$~ & & &  ~$5\mathrm{m}$，$10\mathrm{m}$~ \\
+基站的密度~$\lambda_s$~ & & &  0.0025/${\mathrm{m}^2}$，0.005/${\mathrm{m}^2}$, 0.01/${\mathrm{m}^2}$\\
 微基站的天线数 & & & 1 \\
 基站的发射功率 & & & 1 \\
 用户的天线数 & & & 1 \\
-上行/下行 & & & 下行 \\
-服务基站的选择方式 & & & 就近原则 \\
-是否有联合传输 & & & 否\\
-$\mathrm{SINR}$ & & & $-10 \sim 20$~dB \\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-\BiSubsection{对网络遍历容量性能的仿真分析}{Time diversity}
-由于用户的接收信干噪比是一个和用户在网络中的位置和用户与基站建立的信道链路的信道系数有关系，
-下面针对泊松点过程的基站，对基站中的每个位置的遍历容量进行定性的分析，附加的仿真参数如表~\ref{sinr_sim_para}~所示：
-\begin{table}[htbp]
-\caption{网络中的遍历容量的仿真参数设定}
-\label{sinr_sim_para}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{cccc}
-\toprule[1.5pt]
-参量 & & & 设置 \\
-\midrule[0.5pt]
-基站的个数~$n$~ & & &  100\\
-基站的密度~$\lambda_s$~ & & &  0.01/${\mathrm{m}^2}$\\
-信道衰落系数~$\alpha$~  & & & 2,~4\\
+信干比 & & & $-10 \sim 20$~dB \\
 \bottomrule[1.5pt]
 \end{tabular}
 \end{table}
 
-根据公式~(\ref{SIR_r})，在干扰受限信道的情况下，用户的接收信干噪比近似等于用户的接收信干比，
-接收信干比与信道的衰减系数~$\alpha$，用户距离服务基站和干扰基站的距离，链路的信道系数共同决定。
-由于场景为平稳的瑞利信道，因此可以通过遍历容量去反映在网络中的不同位置上用户的信干噪比性能。
-在区域内，各个位置的遍历容量示意图如图~\ref{network_dis_show}~所示。
+网络的拓扑结构如图~\ref{network_dis_show}~所示。可以看到网络中的基站随机生成，
+基站服务的区域通过泰森多边形给出，图中的泰森多边形的边为网络的边缘，
+边附近的用户为边缘用户。
+
 \begin{figure}[htbp]
 \centering
-\includegraphics[width = 0.55\textwidth]{bs_station.pdf}
+\includegraphics[width = 0.45\textwidth]{bs_station.pdf}
 \caption{网络的拓扑示意图}\vspace{-0.5em}
 \label{network_dis_show}
 \end{figure}
-给定了泊松点过程的一次实现，既可以确定网络的遍历容量，遍历容量的表达式如~(\ref{e_capacity_formular})。
+
+\BiSubsection{对网络遍历容量性能的仿真分析}{Time diversity}
+给定了泊松点过程的一次实现，既可以确定网络的遍历容量，遍历容量的表达式如~(\ref{e_capacity_formular})，
 网络的遍历容量的示意图如图~\ref{e_capacity_show}~所示。
 \begin{figure}[htbp]\label{e_capacity_show}
 \centering
-\includegraphics[width = 0.98\textwidth]{e_capacity_hotmap.pdf}
-\caption{网络中每个位置的遍历容量示意图:~(左)~$\alpha=2$~(右)~$\alpha=4$}\vspace{-0.5em}
+\includegraphics[width = 0.9\textwidth]{e_capacity_hotmap.pdf}
+\caption{网络中每个位置的遍历容量示意图}\vspace{-0.5em}
 \label{e_capacity_show}
 \end{figure}
+
 图~\ref{e_capacity_show}~显示了当~$\alpha=2$~和当~$\alpha=4$~的情况下，
 网络中各个位置的遍历容量，其中遍历容量是一个与网络中的接收信干噪比直接有关的一个量。
 因此也可以大体上反应区域内接收信噪比的分布，接收信噪比和网络中不同位置的遍历容量共同反应了网络的有效性。
 信道的衰减系数~$\alpha$~反应了网络的大尺度衰减的效果的强弱，仿真所选取的~$\alpha$~是两个典型值，当~$\alpha=2$~时，反应了自由空间中的网络的情况，
 当~$\alpha=4$~时，反应了在城市环境中的网络的大尺度衰减的效果。
 $\alpha$~越大，随着用户距离基站的距离逐渐边缘，用户的接收功率下降越快。
-导致了用户的接收到的有用信号的功率是降低的，但是与此同时，由于~$\alpha$~的增大也使得用户接收到干扰基站功率也会变小，
+导致了用户的接收到的有用信号的功率是降低的，但是与此同时，由于~$\alpha$~的增大也使得用户接受到干扰基站功率也会变小，
 因此，给定了用户的位置，用户的遍历容量随着信道衰减系数~$\alpha$~的变化需要做进一步的讨论。
+
+
 
 从图~\ref{e_capacity_show}~中可以很清楚的看出，
 在~$\alpha=4$~的情况下的网络中的遍历容量是好于在~$\alpha=2$~的情况下网络的遍历容量的。这也说明了信道系数~$\alpha$~对干扰功率的影响大于对
@@ -526,41 +471,21 @@ $\alpha$~越大，随着用户距离基站的距离逐渐边缘，用户的接�
 而当~$\alpha = 2$~时，区域内的遍历容量~$C_{Rayleigh}<2~bps/\mathrm{Hz}$~占整个区域的面积大于50\%，且处在大多数的微基站的中心区域的用户的遍历容量大于~$C_{Rayleigh} > 14~bps/\mathrm{Hz}$。
 
 \BiSubsection{对网络覆盖率性能的仿真分析}{Time diversity}
-本小节将对网络的覆盖率性能进行仿真分析，根据定理~$\ref{pc_theorem}$~得到了网络中的覆盖率的表达式，其中式~(\ref{pc_expand_rd_int_expand_complex})~为准确的表达式，
-~(\ref{pc_expand_rd_int_expand_simple})~为近似的表达式。从表达式中我们可以看出，可以看到，该场景下的区域覆盖率主要与微基站用户分布的方差，基站的密度，信道的路径损耗因数有关系。
 下面将分别针对不同的微基站的密度，不同的路径损耗因数，用户分布的不均匀程度分别对网络的覆盖率性能进行分析。
 
-\textbf{(1)}~不同的信道衰减系数对网络的覆盖率性能的影响
-根据式~(\ref{pc_expand_rd_int_expand_complex})~和式~(\ref{pc_expand_rd_int_expand_simple})，
+(1)~不同的信道衰减系数对网络的覆盖率性能的影响
+根据式~(\ref{pc_expand_rd_int_expand_simple})，
 随着小区的信道衰减系数的增加，覆盖率逐渐增加。
-对不同的微基站的密度对网络的覆盖率性能的影响的仿真参数如表~\ref{pc_alpha_sim_para}~所示：
-
-\begin{table}[htbp]
-\caption{衰减系数对覆盖率性能影响的仿真参数}
-\label{pc_alpha_sim_para}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{cccc}
-\toprule[1.5pt]
-参量 & & & 设置 \\
-\midrule[0.5pt]
-基站的个数~$n$~ & & &  100\\
-基站的密度~$\lambda_s$~ & & &  0.01/${\mathrm{m}^2}$\\
-信道衰落系数~$\alpha$~  & & &  2,~4\\
-用户的分散程度~$\sigma$~ & & & 5.0~$\mathrm{m}$ \\
-仿真点数 & & & $10^{4}$ \\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
 
 对公式~(\ref{pc_expand_rd_int_expand_simple})进行数值分析，给出数值曲线。
-并对如表中给出的参数所构成的网络进行蒙特卡洛仿真，得到区域中网络的仿真曲线，将得到的结果作比较，
+并对如表~\ref{pc_sim_para}~中给出的参数所构成的网络进行蒙特卡洛仿真，得到区域中网络的仿真曲线，将得到的结果作比较，
 对不同信道衰减系数下的网络的覆盖率性能进行了比较。曲线图如图~\ref{pc_alpha_graph}~所示：
 
-\begin{figure}[htbp]\label{pc_alpha_graph}
+\begin{figure}[htbp]
 \centering
 \includegraphics[width = 0.62\textwidth]{pc_alpha.pdf}
 \caption{不同衰减系数下的网络覆盖率性能的比较}\vspace{-0.5em}
-\label{e_capacity_show}
+\label{pc_alpha_graph}
 \end{figure}
 从图中可以看出，推导出的覆盖率的近似表达式，与网络通过仿真得到的覆盖率的情况吻合较好。
 这验证了推导出的结果的正确性。
@@ -568,31 +493,11 @@ $\alpha$~越大，随着用户距离基站的距离逐渐边缘，用户的接�
 因此随着信道的衰减系数的增加，网络的覆盖率的性能逐渐的变好，这与推导出的覆盖率的公式所反应出的性质是一致的。
 这也表明，在城市区域内，由于衰减系数较大，增加网络的密集度以换取高的网络的性能的可行性。
 
-\textbf{(2)}~不同的微基站的密度对网络的覆盖率性能的影响
+(2)~不同的微基站的密度对网络的覆盖率性能的影响
 
-根据式~(\ref{pc_expand_rd_int_expand_complex})~和式~(\ref{pc_expand_rd_int_expand_simple})，
 随着小区的微基站的密度的增加，覆盖率逐渐降低，随着基站密度的增加，基站的密度对覆盖率的影响将越来越小。
-对不同的微基站的密度对网络的覆盖率性能的影响的仿真参数如表~\ref{pc_lambda_s_sim_para}~所示：
-
-\begin{table}[htbp]
-\caption{信道衰减系数对覆盖率性能的影响的仿真参数}
-\label{pc_lambda_s_sim_para}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{cccc}
-\toprule[1.5pt]
-参量 & & & 设置 \\
-\midrule[0.5pt]
-基站的个数~$n$~ & & &  25，50，100\\
-基站的密度~$\lambda_s$~ & & &  0.0025/${\mathrm{m}^2}$，0.005/${\mathrm{m}^2}$, 0.01/${\mathrm{m}^2}$\\
-信道衰落系数~$\alpha$~  & & &  4\\
-用户的分散程度~$\sigma$~ & & & 5.0~$\mathrm{m}$ \\
-仿真点数 & & & $10^{4}$ \\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-
 对公式~(\ref{pc_expand_rd_int_expand_simple})进行数值分析，给出数值曲线。
-并对如表中给出的参数所构成的网络进行蒙特卡洛仿真，得到区域中网络的仿真曲线，将得到的结果作比较。
+并对如表~\ref{pc_sim_para}~中给出的参数所构成的网络进行蒙特卡洛仿真，得到区域中网络的仿真曲线，将得到的结果作比较。
 并且对不同基站密度下的网络的覆盖率性能进行了比较。
 曲线图如图~\ref{pc_lambda_s_graph}~所示：
 \begin{figure}[htbp]
@@ -612,34 +517,10 @@ $\alpha$~越大，随着用户距离基站的距离逐渐边缘，用户的接�
 网络的整体性能较差，
 不能满足超密集组网场景下的高接入量，低终断概率的要求，因此在基站密度较高的情况下，需要采用干扰管理算法进行干扰协调。
 
-\textbf{(3)}~不同的用户的离散程度对网络的覆盖率性能的影响
+(3)~不同的用户的离散程度对网络的覆盖率性能的影响
 
-根据式~(\ref{pc_expand_rd_int_expand_complex})~和式~(\ref{pc_expand_rd_int_expand_simple})，
-随着微基站的用户的离散程度的增加，覆盖率逐渐降低，随着基站密度的增加，基站的密度对覆盖率的影响将越来越小。
-对不同的微基站的密度对网络的覆盖率性能的影响的仿真参数如表~\ref{pc_sigma_sim_para}~所示：
-
-\begin{table}[htbp]
-\caption{用户离散程度对覆盖率性能的影响的仿真参数}
-\label{pc_sigma_sim_para}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{cccc}
-\toprule[1.5pt]
-参量 & & & 设置 \\
-\midrule[0.5pt]
-基站的个数~$n$~ & & &  100\\
-基站的密度~$\lambda_s$~ & & &  0.01/${\mathrm{m}^2}$\\
-信道衰落系数~$\alpha$~  & & &  4\\
-用户的分散程度~$\sigma$~ & & & 5.0~$\mathrm{m}$，10.0~$\mathrm{m}$， $\infty$  \\
-仿真点数 & & & $10^{4}$ \\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-其中用户的分散程度为~$\infty$~表示用户的分布服从均匀分布。
-
-对公式~(\ref{pc_expand_rd_int_expand_simple})进行数值分析，给出数值曲线。
-并对如表中给出的参数所构成的网络进行蒙特卡洛仿真，得到区域中网络的仿真曲线，将得到的结果作比较。
-并且对不同用户的离散程度下的网络的覆盖率性能进行了比较， 并且对当用户服从均匀分布的情况下的覆盖率的性能，以及仿真结果进行了比较。
-
+为讨论用户的分布对网络覆盖率性能的影响，
+对不同用户的离散程度下的网络的覆盖率性能进行了比较， 并且对当用户服从均匀分布的情况下的覆盖率的性能，以及仿真结果进行了比较。
 曲线图如图~\ref{pc_sigma_graph}~所示：
 \begin{figure}[htbp]
 \centering

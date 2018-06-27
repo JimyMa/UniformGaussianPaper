@@ -1,12 +1,12 @@
 % !Mode:: "TeX:UTF-8"
 
-\BiChapter{基于格的微基站部署的性能分析}{architecture and system model}
+\BiChapter{规则的微基站部署的性能分析}{architecture and system model}
 
-本章介绍基于格的微基站部署，
+本章介绍规则的微基站部署，
 这也是网络部署的一种基本的方法。
 该方法分为两个步骤，首先在服务区域~$\mathcal{D}$~中选定固定格点，
 然后在选定的格点上部署微基站。
-常见的基于格的微基站部署有环形部署和方格部署，
+常见的规则的微基站部署有环形部署和方格部署，
 在进行分析之前，首先对网络中的关键性能指标进行描述，
 然后分别对上述不同的基站部署的拓扑结构进行介绍和性能分析。
 
@@ -18,13 +18,13 @@
 可靠性和有效性一直是评定通信性能的一个重要指标。其中有效性可以通过网络的信道容量进行衡量。而网络的信道容量是一个直接与信干噪比有关的量。
 信干噪比的表达式如~(\ref{SINR})~所示：
 \begin{equation}\label{SINR}
-  \mathrm{SINR}=\frac{S}{I+N}
+  \mathrm{SINR}=\frac{P}{I+N}
 \end{equation}
 其中~$S$~为通信链路中接收机的接收功率，~$I$~为其他的通信链路对该通信链路所造成的干扰。$\mathrm{SINR}$~表示该通信链路的信干燥比。
 
 超密集组网区域用户与基站之间距离比较近，因此干扰占有几乎全部的比重，反之噪声的影响几乎可以忽略不计。也就是说，密集无线网络是一个干扰受限的信道。其信干比近似等于信干燥比。信干比的表达式如~(\ref{SIR})~：
 \begin{equation}\label{SIR}
-  \mathrm{SIR}=S/I
+  \mathrm{SIR}=P/I
 \end{equation}
 其中~$\mathrm{SIR}$~表示该通信链路的信干比。
 \BiSubsection{用户的遍历容量}{ASE}
@@ -227,56 +227,6 @@ $N=8,R=25\mathrm{m}$~时的情况和$N=16,R=50\mathrm{m}$~时，网络的覆盖�
 \label{pc_random_single_circle_r_n_face}
 \end{figure}
 
-\BiSubsection{环形基站部署的单位面积频谱效率的分析}{Defination of UDNs}
-
-在前面的小节中，我们讨论了环形基站部署的覆盖率的性能，其是网络的可靠性的一个重要的衡量指标，
-在任何的通信系统中，用户的接收信干比都需要满足一个门限值~$\delta$~才能进行可靠的通信。
-然而通信的系统不能只满足有效性要求，还需要满足可靠性的要求。
-衡量可靠性的一个重要的指标就是频谱效率。
-但在超密集组网的环境下，由于接入用户的数量较多，用户的速率需求较大，
-因此，频谱效率已经不能完全满足衡量网络的有效性的要求，
-需要考虑能够同时服务多少个用户，并且让用户的和速率尽可能的大，
-即要求网络的单位面积频谱效率高。
-
-本小节对环形基站部署的网络的单位面积频谱效率进行仿真，仿真的参数如表~\ref{single_circle_ase_para}~所示，
-\begin{table}[htbp]
-\caption{覆盖率与~$R$~和~$N$~的关系的仿真参数}
-\label{single_circle_ase_para}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{cccc}
-\toprule[1.5pt]
-参量 & & & 设置 \\
-\midrule[0.5pt]
-区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$ \\
-信道的类型 & & &  瑞利衰落信道\\
-基站的个数~$N$~ & & &  $2\sim20$\\
-圆环的半径~$R$~ & & &  $1.0\sim 50\mathrm{m}$\\
-用户的分布~$\Psi$~ & & & 随机分布，二维高斯分布\\
-二维高斯分布的标准差~$\sigma$~ & & & ${5\mathrm{m}}$\\
-信道衰落系数~$\alpha$~  & & & 4.0\\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-讨论部署半径~$R$~和基站个数~$N$~对网络的单位面积频谱效率的影响，
-得到的结果如图~\ref{single_circle_ase_show}~所示，
-无论是用户为随机分布还是用户为以基站为均值的混合二维高斯分布，
-区域的单位面积频谱效率随着部署半径~$R$~的增加而增大，
-这与网络的覆盖率的性能随着~$R$~的变化规律相同，
-区域的单位面积频谱效率随着基站数~$N$~的增多，
-区域的单位面积频谱效率的性能逐渐变好，
-这与覆盖率性能随着~$N$~的变化相反。
-可以看到~$N$~增大，网络中的用户的干扰增强，
-覆盖率变差，但是随之可以服务的用户增多，单位面积频谱效率变大，
-在确定基站的个数的问题上反映出了通信中可靠性和有效性的矛盾。
-将用户为随机分布和混合二维高斯分布的单位面积频谱效率性能作对比，
-由于在用户为混合二维高斯分布条件下，距离基站近的用户较之于用户为随机分布下更多，
-因此其覆盖率性能和单位面积频谱效率的性能均更好。
-\begin{figure}[htbp]
-\centering
-\includegraphics[width = 0.90\textwidth]{single_circle_ase_show.pdf}
-\caption{环形基站部署的单位面积频谱效率受基站数和部署半径的影响}\vspace{-0.5em}
-\label{single_circle_ase_show}
-\end{figure}
 
 \BiSection{方格形的基站部署的覆盖率的性能分析}{Defination of UDNs}
 \BiSubsection{方格形的基站部署的拓扑结构}{Defination of UDNs}
@@ -411,40 +361,6 @@ $l_1=10\mathrm{m},~l_2=20\mathrm{m}$~3~种情况进行分析，覆盖率性能�
 从通过颜色反映出来的图的梯度特性上可以看出，当基站之间的距离较小时，单独增加横或者纵的距离，可能会使网络的覆盖率的性能下降。
 接着我们对网络中覆盖率受到基站间隔的影响进行了分析，得出当横纵间距相等时，覆盖率是距离的单调递增函数，
 说明距离边远，对用户接收干扰的影响大于对用户接收有用功率的影响。
-
-
-\BiSubsection{方格形的基站部署的单位面积谱效率}{Defination of UDNs}
-
-本小节对方格形基站部署的网络的单位面积频谱效率进行仿真,仿真的参数如
-表~\ref{grid_ase_param}~所示,
-\begin{table}[htbp]
-\caption{单位面积谱效率与~$l_1$~和~$l_2$~的关系的仿真参数}
-\label{grid_ase_param}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{cccc}
-\toprule[1.5pt]
-参量 & & & 设置 \\
-\midrule[0.5pt]
-区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$ \\
-基站横向间距~$l_1$~ & & &  $5.0\sim 25.0\mathrm{m}$\\
-基站纵向间距~$R$~ & & &  $5.0\sim 25.0\mathrm{m}$\\
-用户的分布~$\Psi$~ & & & 随机分布，二维高斯分布\\
-二维高斯分布的标准差~$\sigma$~ & & & ${5\mathrm{m}}$\\
-信道衰落系数~$\alpha$~  & & & 4.0\\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-讨论基站的横向距离~$l_1$~ 和基站的纵向距离~$l_2$~对网络的单位面积频谱效率的影响,得
-到的结果如图~\ref{grid_ase_show}~所示,
-可以看到基站的距离越近，区域内基站的密度越高，其单位面积频谱效率就越好，
-得到了和覆盖率性能完全相反的结果，说明在方格形基站部署的情况下，
-反应可靠性的覆盖率和反应有效性的单位面积谱效率同样是一对折中。
-\begin{figure}[htbp]
-\centering
-\includegraphics[width = 0.90\textwidth]{grid_ase_show.pdf}
-\caption{方格形基站部署单位面积谱效率受格形的影响}\vspace{-0.5em}
-\label{grid_ase_show}
-\end{figure}
 
 \BiSection{本章小结}{Conclusion}
 本章主要介绍了网络的性能指标和基于格的基站部署的性能，

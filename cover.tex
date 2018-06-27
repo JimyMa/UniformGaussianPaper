@@ -1,7 +1,7 @@
 % !Mode:: "TeX:UTF-8"
 
 \newcommand{\chinesethesistitle}{密集热点区域无线网络性能分析与优化} %授权书用，无需断行
-\newcommand{\englishthesistitle}{\uppercase{performance analysis and optimization in dense hot point wireless networks}} %\uppercase作用：将英文标题字母全部大写；
+\newcommand{\englishthesistitle}{\uppercase{performance analysis and optimization in dense hotspot wireless networks}} %\uppercase作用：将英文标题字母全部大写；
 \newcommand{\chinesethesistime}{2018~年~6~月}  %封面底部的日期中文形式
 \newcommand{\englishthesistime}{June, 2018}    %封面底部的日期英文形式
 
@@ -35,110 +35,76 @@
 \BiAppendixChapter{摘~~~~要}{}  %使用winedt编辑时文档结构图（toc）中为了显示摘要，故增加此句；
 \fi
 \cabstract{
-5G将于2020年前后开始商用，这对通信人提出了新的挑战——在未来的网络中，网络的容量要求大大增加。
-相比于4G，5G网络的容量需求将有1000倍的增长。
-超密集组网在区域面积内放置了更多的基站，这是能够提供巨大容量增益一种十分可靠的技术。
-通过在宏基站的热点区域放置小的基站，也可以实现在小区内的任何地点都可以流畅通信的愿景。
-超密集组网将用于满足区域面积内超高的容量需求，让用户在无论何时，无论何地都能拥有超高速的上网和通话体验。
-但密集的网络使得基站之间的距离更近，随之带来的小基站之间干扰问题越发明显。
-并且在现代的通信系统中，由于移动用户多，接入事件长，用户需求多样，导致系统的业务量需求很大，但频谱资源却是有限的。
-因此结合根据密集热点区域无线网络的特性，对无线网络进行有效合理的建模，并设计一个好的资源分配算法来协调干扰,增加单位频谱的利用效率,保证系统的正常运行。
+第五代移动通信技术(~the 5~th Generation Communication Technology，5G~)将于2020年前后开始商用，
+相比于第四代移动通信技术(~the 4th Generation Communication Technology，4G~)，
+5G~网络的容量需求将有~1000~倍的增长。
+超密集组网(~Ultra Dense Networks, ~UDNs~)通过在区域内放置更多的微基站(~Small Base Station，SBS~)换取网络性能的提升，
+是一种能够提供巨大容量增益的十分可靠的技术。
+但是，超密集组网使~SBS~之间的距离更近，随之带来的~SBS~之间干扰问题越发明显。
+在超密集组网场景中，由于~SBS~之间的距离较近，因此~SBS~和用户构成的通信链路的信道状态信息(~Channel State Information，CSI~)
+易于汇总到控制端，再由控制端控制~SBS~进行数据的发送，达到~SBS~之间协作的目的。
+由于协作的~SBS~的天线之间的距离远远大于天线的相关距离(~Coherence Distance~)，
+因此协作的~SBS~可以构成一个分布式的多输入多输出(~Multiple-Input Multiple-Output，MIMO~)系统，
+协作的~SBS~所服务的用户可以通过波束成型(Beamforming，BF)的方法将用户的接收信号向量在空域上相互正交，
+达到干扰消除的目的。
 
-首先，本文根据~5G~提出的超密集组网技术，选择其中的一种场景，该场景下，
-小区中的基站的部署是泊松点过程，小区中的用户的统计特性服从以基站为均值的二维高斯分布，
-将该种场景定义为密集热点区域无线网络。
-结合密集热点区域无线网络的特性。根据基站与用户的统计特性，基于随机几何模型，得到了覆盖率和区域面积谱效率的表达式。
-并采用蒙特卡洛仿真的方法验证了表达式的正确性。
-通过得到覆盖率和区域面积谱效率的表达式，可以很清楚的看出网络的密集程度，
-用户的分散程度，以及路径损耗因子对整个密集热点区域网络的性能影响。
-并得到了覆盖率与区域面积谱效率相对于这些参数的理论与仿真曲线。
-可以看到，基于随机几何模型的覆盖率和区域面积谱效率的表达式求解简单，
-且可以很好的估计密集热点区域无线网络的指标，便于分析网络中各个相关参数对性能的影响。
+首先，本文对基于格的基站部署方法进行了研究，包括环形的基站部署方法和方格点的基站部署方法。
+对上述两种基站部署方法的拓扑结构进行了介绍，并对性能进行了分析。
+对于环形的基站部署方法，讨论了环的半径~$R$~和基站的个数~$N$~对整个网络的性能的影响。
+对于方格点的基站部署方法，讨论了~SBS~之间的横向间距~$l_1$~和纵向间距~$l_2$~对网络的性能的影响。
 
-接着，本文首先根据场景的特性，对密集热点区域无线网络的性能进行优化，降低小区内的基站之间的干扰，
-提升小区的性能。
-其中网络的干扰管理的架构分为两个部分，首先第一个部分将小区内的基站进行分簇，
-提出基于深度有限和基于~k~-~均值的微基站分簇算法；
-第二部分根据第一部分得到的分簇结果，基于~CRAN~的网络架构，
-对簇内的基站采用基于~ZFBF~的多用户联合传输(~CoMP~)技术。
-仿真分析证明，该干扰管理架构有效的提升了网络的覆盖率，单位面积频谱效率等性能，
-达到了小区内性能优化的目的。
+接着，本文对基于泊松点过程(~Poisson Point Process，PPP~)的基站部署的性能进行了研究，
+并假设用户的分布为混合二维高斯分布以反映网络中的用户的不均匀性和聚集性。
+提出了一种简单可行的办法计算该场景下的覆盖率和单位面积频谱效率等性能指标，
+并讨论了影响网络性能的相关参量。
+
+本文最后对网络中用户的接收信干比(~Signal Inference Ratio，SIR~)性能做进一步的优化。
+优化的过程分为两步，
+第一步出于对网络的同步性和复杂度要求的考虑本文提出了基于深度优先搜索和以用户为中心的基站分簇算法，
+第二步对簇内采用基于~SBS~间协作的分布式迫零预编码(~Zero-Forcing Beamforming，ZFBF~)技术优化网络中用户的接收~SIR，
+应用仿真分析的方法讨论了优化后的网络的性能。
 }
-\ckeywords{超密集组网；无线网络建模；随机几何；分簇；联合传输；}
+\ckeywords{超密集组网；随机几何；微基站分簇；联合传输；波束形成}
 
 \eabstract{
 
-5G will begin commercial use around 2020, which poses new challenges for communicators - in the future, the network's capacity requirements will greatly increase.
-Compared to 4G, the capacity requirement of 5G networks will increase by a factor of 1,000.
-The ultra-dense networking places more base stations in the area, which is a very reliable technology that can provide huge capacity gain.
-By placing a small base station in a hot spot area of ​​a macro base station, it is also possible to realize a vision of smooth communication anywhere in the cell.
-The ultra-dense networking will be used to meet the ultra-high capacity requirements in the area, allowing users to have ultra-high-speed Internet access and call experience whenever and wherever they are.
-However, the dense network makes the distance between the base stations closer, and the problem of interference between the small base stations becomes more and more obvious.
-In modern communication systems, there are many mobile users, long access events, and diverse user demands, resulting in a large amount of system traffic, but spectrum resources are limited.
-Therefore, according to the characteristics of the wireless network in dense hotspots, an effective and reasonable wireless network model is established, and a good resource allocation algorithm is designed to coordinate interference, increase the utilization efficiency of the unit spectrum, and ensure the normal operation of the system.
+The 5th-generation mobile communication technology(5G) will begin commercial application around 2020.
+Compared to the 4th-generation mobile communication technology(4G),
+the capacity requirement of the 5G network will increase by 1,000 times.
+The ultra-dense networks(UDNS) improves the network performance by placing more base stations in the area.
+It is a very reliable technology that can provide huge capacity gains.
+However, the UDNs makes the distance between SBSs closer,
+and the interference between ~SBSs~ gets more obvious.
+In UDNs, since the distance between SBSs is relatively close,
+ it is easier to get the channel state information (CSI) of the communication link formed by SBS
+ and the user and submit to the controler.
+The controler instructs SBSs to send data, achieving the cooperation between SBSs.
+Since the distance between the antennas of the cooperative SBSs is much larger than the coherence distance of the antennas,
+the cooperative SBSs can form a distributed multiple-input multiple-output (MIMO) system.
+The users of the cooperative SBS can use the beamforming(BF) method to orthogonalize the user's received signal vectors in the space domain,
+achieving the purpose of interference cancellation.
 
+Firstly,the grid-based base station deployment methods are introduced, including the ring-shaped base station deployment method and the grid point base station deployment method.
+The topology structure of the above two base station deployment methods is introduced and the performance is analyzed.
+For the ring-shaped base station deployment method, the effect of the ring radius $R$ and the number of base stations $N$ on the performance of the entire network is discussed.
+For the grid points base station deployment method,
+the influence of the horizontal spacing between SBSs $l_1$ and the vertical spacing $l_2$ on the performance of the network is discussed.
 
-First, this paper combines the characteristics of wireless networks in dense hotspots. According to the statistical characteristics of the base station and the user, based on the stochastic geometric model, the expressions of the coverage rate and the area spectrum efficiency are obtained.
-Monte Carlo simulation method was used to verify the correctness of the expression.
-By obtaining the expressions of coverage and area area spectrum efficiency, it can be clearly seen that the density of the network, the hotness of the hot spots, and the path loss factor affect the performance of the entire dense hot spot network.
-The simulation and analysis curves of the coverage and area area spectrum efficiency relative to these parameters were obtained.
-It can be seen that based on the expressions of the coverage rate of the random geometric model and the efficiency of the area spectrum, the expression is simple to solve, and the indexes of the wireless network in the dense hot spot area can be well estimated, and it is convenient to analyze the relevant parameters of the network for performance.
+Next, the performance of base station deployments based on the Poisson Point Process(PPP) is discussed.
+It is assumed that the user's distribution is a mixed two-dimensional Gaussian distribution to reflect the user's heterogeneity and aggregation in the network.
+A tractable method is proposed to calculate the coverage area rate and spectral efficiency  under this scenario.
+And related parameters that affect network performance are discussed.
 
-Then, according to the characteristics of the scene, this paper first proposes a CRAN-based network architecture. Based on the optimization strategy in graph theory, the base station and users are regarded as nodes, and the link between the base station and the user is regarded as a variable, and a bipartite graph is constructed.
-By pruning the bipartite graph reasonably, the graph model that can express the connection between the base station and the user without losing the generality can be obtained.
-Based on the model in this figure, an optimization algorithm for the spectrum and power resources of the graph model based on the bipartite graph is proposed to improve the performance in dense wireless network scenarios in hot spots.
-In this paper, the proposed spectrum and power resource scheduling algorithms are theoretically analyzed and simulated, and compared with the traditional spectrum and power resource scheduling algorithms.
-The results show that compared with the traditional scheduling algorithm, this algorithm can significantly reduce the inter-cell interference in wireless networks in dense hotspots, increase the coverage and access users of the area, and then increase the spectral efficiency per unit area of ​​the area.
+Finally, the user's receive signal-to-interference ratio (SIR) performance in the network is optimizated.
+The optimization process is divided into two steps.
+At the first step, considering the requirements of synchronization and complexity of the network,
+clustering based on th depth-first search and user-centric clustering algorithm are proposed.
+At the second step is  the Zero-Forcing Beamforming (ZFBF) technique based on SBS cooperation are used to optimize the user's receive~SIR in the network,
+besides, simulation analysis is used to discuss the performance of the optimized network.
 }
 
-\ekeywords{Ultra Dense Networks, Wireless Network Modeling, Stochastic Geometry, Clustering, CoMP}
+\ekeywords{UDNs, Stochastic Geometry, Clustering, CoMP, Beamforming}
 
 
 \makecover
 \clearpage
-
-\BiAppendixChapter{附~~~~表}{}
-{
-%\begin{longtable}[c]{@{}ccc@{}}
-%
-%\end{longtable}
-%\toprule[1.5pt]
-%变量名       &  & 物理意义\tabularnewline
-%\midrule[1pt]
-%\endhead
-%$A$         &  & 区域的面积\tabularnewline
-%$\alpha$    &  & 路径损耗系数\tabularnewline
-%$\Phi$      &  & 微基站的分布\tabularnewline
-%$\lambda_s$ &  & 微基站的密度\tabularnewline
-%$P$         &  & 微基站的最大发射功率\tabularnewline
-%$\Psi$      &  & 用户的分布\tabularnewline
-%$\lambda_u$ &  & 用户的密度\tabularnewline
-%$h$         &  & 瑞利信道衰落系数\tabularnewline
-%$d$         &  & 用户和基站之间的距离\tabularnewline
-%\bottomrule[1.5]
-%\end{longtable}
-\begin{table}[htbp]
-\label{sinr_sim_para}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{cccc}
-\toprule[1.5pt]
-变量名 & & & 物理意义 \\
-\midrule[0.5pt]
-$A$         & & & 区域的面积\tabularnewline
-$\alpha$    & & & 路径损耗系数\tabularnewline
-$\Phi$      & & & 微基站的分布\tabularnewline
-$\lambda_s$ & & & 微基站的密度\tabularnewline
-$P$         & & & 微基站的最大发射功率\tabularnewline
-$\Psi$      & & & 用户的分布\tabularnewline
-$\lambda_u$ & & & 用户的密度\tabularnewline
-$h$         & & & 瑞利信道衰落系数\tabularnewline
-$d$         & & & 用户和基站之间的距离\tabularnewline
-$\gamma$    & & & 用户的接收信干噪比\tabularnewline
-$\delta$    & & & 用户的信干比需求门限\tabularnewline
-$\tau$      & & & 基于深度优先搜索的基站分簇算法的距离门限\tabularnewline
-$k$         & & & 基于~k~-~均值的基站分簇算法的均值个数\tabularnewline
-$\mu$       & & & 以用户为中心的基站分簇算法的簇内最多基站数\tabularnewline
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-}
