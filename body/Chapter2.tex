@@ -20,13 +20,14 @@
 \begin{equation}\label{SINR}
   \mathrm{SINR}=\frac{P}{I+N}
 \end{equation}
-其中~$S$~为通信链路中接收机的接收功率，~$I$~为其他的通信链路对该通信链路所造成的干扰。$\mathrm{SINR}$~表示该通信链路的信干燥比。
+其中~$P$~为通信链路中接收机的接收功率，~$I$~为其他的通信链路对该通信链路所造成的干扰。$\mathrm{SINR}$~表示该通信链路的信干噪比。
 
-超密集组网区域用户与基站之间距离比较近，因此干扰占有几乎全部的比重，反之噪声的影响几乎可以忽略不计。也就是说，密集无线网络是一个干扰受限的信道。其信干比近似等于信干燥比。信干比的表达式如~(\ref{SIR})~：
+超密集组网区域用户与基站之间距离比较近，因此干扰占有几乎全部的比重，反之噪声的影响几乎可以忽略不计，
+也就是说，超密集组网场景是一个干扰受限的信道。其信干比近似等于信干燥比。信干比的表达式如~(\ref{SIR})~：
 \begin{equation}\label{SIR}
   \mathrm{SIR}=P/I
 \end{equation}
-其中~$\mathrm{SIR}$~表示该通信链路的信干比。
+其中~$\mathrm{SIR}$~表示该通信链路的接收信干比。本篇文章假设小区中用户的接收信干噪比与信干比相等。
 \BiSubsection{用户的遍历容量}{ASE}
 给定一个用户的接收信干比，即可以求出一个用户的遍历容量，在平稳的瑞利信道下，用户的遍历容量如式~\ref{e_capacity_formular}~所示：
 \begin{equation}\label{e_capacity_formular}
@@ -42,7 +43,7 @@
 为保证用户的服务质量与速率要求，用户的接收信干比需要维持在一个固定的门限上，而到底有多少用户在该时刻上有很好的信干比，或者说在瞬时上能达到所要求的信干比的用户一共有多少呢？区域覆盖率是评定的有效的指标。
 区域覆盖率的定义如~(\ref{pc})~所示：
 \begin{equation}\label{pc}
-  p_c(T) = \mathbb{P}[\mathrm{SINR}>T]
+  p_c(T) = \mathbf{P}[\mathrm{SINR}>T]
 \end{equation}
 其中~$T$~为给定的信干噪比的门限，~$\mathrm{SINR}$~为通信链路的信干噪比，$\mathbb{P}$~表示概率。根据定义，可对其物理意义做出以下的三种解释：
 
@@ -70,13 +71,13 @@
 \end{equation}
 上式中~$C/B$~就是单位带宽的容量，单位为~$bps/\mathrm{Hz}$~体现信道链路的传输性能。式~(\ref{SE})~给出了理论上频谱效率的理论最大值。
 
-在密集热点区域无线网络的场景中，单个链路的容量已经不再是衡量一个网络的好坏的唯一指标，在超密集热点区域无线网络的场景中，还要考虑在一段时间内，网络中服务的用户的和容量。
+在密集热点区域无线网络的场景中，单个链路的容量已经不再是衡量一个网络的好坏的唯一指标，在超密集组网场景中，还要考虑在一段时间内，网络中服务的用户的和容量。
 同时，考虑到不同区域上的频谱效率相差可能非常悬殊。因此在密集热点的网络环境下，频谱效率将不能够完全反映整个区域的无线网络的性能，
 取而代之的是单位面积谱效率这一物理量，其定义为在单位面积上的频谱效率，表达式如~(\ref{ASE})~所示：
 \begin{equation}\label{ASE}
-  \eta_{ASE}=C/(B\cdot S) = \lambda\mathbb{E}[\log_2(1+\mathrm{SINR})]
+  \eta_{ASE}=C/(B\cdot S) = \lambda_s~\mathbb{E}[\log_2(1+\mathrm{SINR})]
 \end{equation}
-单位为~$bps/\mathrm{Hz}/\mathrm{m}^2$~。其中~$\lambda$~为服务区域内基站的密度。区域面积谱效率的物理意义为单位面积上所承载的平均的和容量。
+单位为~$bps/\mathrm{Hz}/\mathrm{m}^2$~。其中~$\lambda_s$~为服务区域内基站的密度。区域面积谱效率的物理意义为单位面积上所承载的平均的和容量。
 
 \BiSection{环形的基站部署}{Defination of UDNs}
 
@@ -129,8 +130,8 @@ $\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
 采用蒙特卡洛仿真，得到的结果如图~\ref{single_circle_e_capacity_show}~所示，
 \begin{figure}[htbp]
 \centering
-\includegraphics[width = 0.98\textwidth]{single_circle_e_capacity_show_30_12.pdf}
-\caption{环形基站部署的遍历容量热力图:~(左)~$\alpha=2$~(右)~$\alpha=4$}\vspace{-0.5em}
+\includegraphics[width = 0.90\textwidth]{single_circle_e_capacity_show_30_12.pdf}
+\caption{环形基站部署的遍历容量热力图}\vspace{-0.5em}
 \label{single_circle_e_capacity_show}
 \end{figure}
 可以看到距离服务基站较近的用户的遍历容量较好，
@@ -168,12 +169,6 @@ $\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
 得到~4~种情况，
 覆盖率性能的曲线如图~\ref{pc_random_single_circle_r_n}~所示，
 在用户分布为随机分布的情况下的覆盖率仿真曲线如图~\ref{pc_random_single_circle_r_n}~(a)所示，
-\begin{figure}[htbp]
-\centering
-\includegraphics[width = 0.90\textwidth]{pc_random_single_circle_r_n.pdf}
-\caption{环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
-\label{pc_random_single_circle_r_n}
-\end{figure}
 通过性能曲线可以看出，总体来讲，基站数目~$N$~越多，部署基站的半径~$R$~越小，则覆盖率的性能越差，
 低信干比门限下，受半径~$R$~影响更强烈，
 高信干比门限下，受基站数~$N$~影响更强烈。
@@ -181,17 +176,25 @@ $\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
 如图~\ref{pc_random_single_circle_r_n}~(b)所示，
 同样是基站数目~$N$~越多，部署基站的半径~$R$~越小，则覆盖率的性能越差，
 但用户为混合二维高斯分布情况下基站数~$N$~和半径~$R$~对网络覆盖率性能的影响大致上相同，
-$N=8,R=25\mathrm{m}$~时的情况和$N=16,R=50\mathrm{m}$~时，网络的覆盖率性能大体上是相同的。
+$N=8$，$R=25\mathrm{m}$~时的情况和$N=16$，$R=50\mathrm{m}$~时，网络的覆盖率性能大体上是相同的。
 也可以看到此时网络的覆盖率性能和用户分布随机的情况相比有了明显的好转，
 当~$N=8,R=50\mathrm{m}$~时，网络在$5\mathrm{dB}$的覆盖率甚至接近1。
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width = 0.90\textwidth]{pc_random_single_circle_r_n.pdf}
+\caption{环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
+\label{pc_random_single_circle_r_n}
+\end{figure}
+
 图~\ref{pc_random_single_circle_r_n}~给出了特定的~$N$~和~$R$~的情况下的覆盖率与信干比的关系曲线，
 从曲线中，我们可以看出当~$N=8, ~12$~和~$R=25.0,~50.0\mathrm{m}$~下，网络的覆盖率的具体情况，
-但曲线并不能反应覆盖率随~$N$~和~$R$~的变化的关系，
+但曲线并不能反应覆盖率随~$N$~和~$R$~的变化的关系。
 为了得到覆盖率与~$N$~和~$R$~的关系，
 选定信干比的典型值~$0\mathrm{dB}$，$3\mathrm{dB}$，$5\mathrm{dB}$时，
 可以得到覆盖率与~$R$~和~$N$~的关系的曲面图，
-仿真的参数表如表~\ref{pc_random_single_circle_r_n_table}~所示，
+仿真的参数表如表~\ref{pc_random_single_circle_r_n_table}~所示：
+
 \begin{table}[htbp]
 \caption{覆盖率与~$R$~和~$N$~的关系的仿真参数}
 \label{pc_random_single_circle_r_n_table}
@@ -211,6 +214,7 @@ $N=8,R=25\mathrm{m}$~时的情况和$N=16,R=50\mathrm{m}$~时，网络的覆盖�
 \bottomrule[1.5pt]
 \end{tabular}
 \end{table}
+
 仿真得到的曲面图如图~\ref{pc_random_single_circle_r_n_face}~所示，
 可以看到当用户的分布为随机分布的情况下，覆盖率随着基站数的变化大体上是逐渐降低的，
 与之前讨论得到的结果是一致的，但随着半径的变化不再是单调的，说明覆盖率的性能随着部署半径的增大先增大后减小，
@@ -239,7 +243,7 @@ $N=8,R=25\mathrm{m}$~时的情况和$N=16,R=50\mathrm{m}$~时，网络的覆盖�
 \caption{方格形基站部署的拓扑结构示意图}\vspace{-0.5em}
 \label{grid_bs_station_show}
 \end{figure}
-在图~\ref{grid_bs_station_show}~所示的基站拓扑结构中，区域~$\mathcal{D}$~为为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
+在图~\ref{grid_bs_station_show}~所示的基站拓扑结构中，区域~$\mathcal{D}$~为为一个~$100~\mathrm{m}\times 100~ \mathrm{m}$~的区域，
 $l_1=l_2=20\mathrm{m}$，
 在横向和纵向上均每隔~$20\mathrm{m}$~部署一个基站，一共在区域内共部署了~25~个基站。
 再该场景下基站均匀的部署在了区域内，每个基站的负载均衡，每隔微基站覆盖的区域的性能相同，适合区域内用户均匀分布的情况。
@@ -296,9 +300,9 @@ $l_1=l_2=20\mathrm{m}$，
 \toprule[1.5pt]
 参量 & & & 设置 \\
 \midrule[0.5pt]
-区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$ \\
-基站的横向间隔~$l_1$~ & & &  $10\mathrm{m} , 20\mathrm{m}$ \\
-基站的纵向间隔~$l_2$~ & & &  $10\mathrm{m} , 20\mathrm{m}$ \\
+区域~$\mathcal{D}$~的大小  & & & ~$100~\mathrm{m} \times 100 ~\mathrm{m}$ \\
+基站的横向间隔~$l_1$~ & & &  $10~\mathrm{m} , 20~\mathrm{m}$ \\
+基站的纵向间隔~$l_2$~ & & &  $10~\mathrm{m} , 20~\mathrm{m}$ \\
 用户的分布~$\Psi$~ & & & 随机分布，二维高斯分布\\
 二维高斯分布的标准差~$\sigma$~ & & & ${5\mathrm{m}}$\\
 信道衰落系数~$\alpha$~  & & & 4.0\\
@@ -307,22 +311,22 @@ $l_1=l_2=20\mathrm{m}$，
 \end{table}
 
 对所给定的横纵间隔进行组合，
-对~$l_1=10\mathrm{m},~l_2=10\mathrm{m}$，$l_1=10\mathrm{m},~l_2=20\mathrm{m}$，
-$l_1=10\mathrm{m},~l_2=20\mathrm{m}$~3~种情况进行分析，覆盖率性能的曲线如图
+对~$l_1=10~\mathrm{m},~l_2=10~\mathrm{m}$，$l_1=10~\mathrm{m},~l_2=20~\mathrm{m}$，
+$l_1=10~\mathrm{m},~l_2=20~\mathrm{m}$~3~种情况进行分析，覆盖率性能的曲线如图
 ~\ref{pc_random_square_gird_l12}~所示，在途中可以看到，当用户的分布服从随机分布的情况下，
 不同的基站的横纵间隔~$l_1$~和~$l_2$~对网络的覆盖率性能影响不大，
 随着基站之间的距离逐渐边远，网络的覆盖率性能逐渐变好，
 由于基站之间的距离不断地边远，干扰信号的强度更低，得到的覆盖率性能也更好，
 这也可以看出随着基站密度的下降，网络的覆盖率性能提升了。
-在~$l_1=l_2=10\mathrm{m}$~的情况下，网络的~$5~\mathrm{dB}$~的覆盖率性能为~0.6。
+在~$l_1=l_2=10~\mathrm{m}$~的情况下，网络的~$5~\mathrm{dB}$~的覆盖率性能为~0.6。
 而当用户的分布为混合二维高斯分布的情况下，
-可以看到在~$l_1=l_2=10\mathrm{m}$~时得到的曲线的覆盖率相较于其他曲线的性能有较大的提升，
+可以看到在~$l_1=l_2=10~\mathrm{m}$~时得到的曲线的覆盖率相较于其他曲线的性能有较大的提升，
 因为我们假设用户分布的标准差为~$5~\mathrm{m}$，而当间隔超过~$20~\mathrm{m}$~后，
 即四个标准差，网络中的用户处于边缘的概率就很小了，因此覆盖率有了显著的提升。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width = 0.90\textwidth]{pc_random_square_gird_l12.pdf}
-\caption{环形基站部署的覆盖率性能曲线}\vspace{-0.5em}
+\caption{方格形基站部署的覆盖率性能曲线}\vspace{-0.5em}
 \label{pc_random_square_gird_l12}
 \end{figure}
 选定信干比的值为~$0\mathrm{dB}$，$3\mathrm{dB}$~和~$5\mathrm{dB}$~时，
@@ -335,7 +339,7 @@ $l_1=10\mathrm{m},~l_2=20\mathrm{m}$~3~种情况进行分析，覆盖率性能�
 \toprule[1.5pt]
 参量 & & & 设置 \\
 \midrule[0.5pt]
-区域~$\mathcal{D}$~的大小  & & & ~$100\mathrm{m} \times 100 \mathrm{m}$ \\
+区域~$\mathcal{D}$~的大小  & & & ~$100~\mathrm{m} \times 100~ \mathrm{m}$ \\
 基站的横向间隔~$l_1$~ & & &  $5.0\sim 25.0\mathrm{m}$\\
 圆环的纵向间隔~$l_2$~ & & &  $5.0\sim 25.0\mathrm{m}$\\
 用户的分布~$\Psi$~ & & & 随机分布，二维高斯分布\\

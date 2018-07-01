@@ -60,7 +60,7 @@
 
 本文最后对网络中用户的接收信干比(~Signal Inference Ratio，SIR~)性能做进一步的优化。
 优化的过程分为两步，
-第一步出于对网络的同步性和复杂度要求的考虑本文提出了基于深度优先搜索和以用户为中心的基站分簇算法，
+第一步出于对网络的同步性和复杂度要求的考虑本文提出了基于深度优先搜索和以用户为中心的微基站分簇(~Base Station Clustering~)算法，
 第二步对簇内采用基于~SBS~间协作的分布式迫零预编码(~Zero-Forcing Beamforming，ZFBF~)技术优化网络中用户的接收~SIR，
 应用仿真分析的方法讨论了优化后的网络的性能。
 }
@@ -68,10 +68,10 @@
 
 \eabstract{
 
-The 5th-generation mobile communication technology(5G) will begin commercial application around 2020.
-Compared to the 4th-generation mobile communication technology(4G),
+The 5th-generation mobile communication technology (5G) will begin commercial application around 2020.
+Compared to the 4th-generation mobile communication technology (4G),
 the capacity requirement of the 5G network will increase by 1,000 times.
-The ultra-dense networks(UDNS) improves the network performance by placing more base stations in the area.
+The ultra-dense networks (UDNS) improves the network performance by placing more base stations in the area.
 It is a very reliable technology that can provide huge capacity gains.
 However, the UDNs makes the distance between SBSs closer,
 and the interference between ~SBSs~ gets more obvious.
@@ -81,7 +81,7 @@ In UDNs, since the distance between SBSs is relatively close,
 The controler instructs SBSs to send data, achieving the cooperation between SBSs.
 Since the distance between the antennas of the cooperative SBSs is much larger than the coherence distance of the antennas,
 the cooperative SBSs can form a distributed multiple-input multiple-output (MIMO) system.
-The users of the cooperative SBS can use the beamforming(BF) method to orthogonalize the user's received signal vectors in the space domain,
+The users of the cooperative SBS can use the beamforming (BF) method to orthogonalize the user's received signal vectors in the space domain,
 achieving the purpose of interference cancellation.
 
 Firstly,the grid-based base station deployment methods are introduced, including the ring-shaped base station deployment method and the grid point base station deployment method.
@@ -90,7 +90,7 @@ For the ring-shaped base station deployment method, the effect of the ring radiu
 For the grid points base station deployment method,
 the influence of the horizontal spacing between SBSs $l_1$ and the vertical spacing $l_2$ on the performance of the network is discussed.
 
-Next, the performance of base station deployments based on the Poisson Point Process(PPP) is discussed.
+Next, the performance of base station deployments based on the Poisson Point Process (PPP) is discussed.
 It is assumed that the user's distribution is a mixed two-dimensional Gaussian distribution to reflect the user's heterogeneity and aggregation in the network.
 A tractable method is proposed to calculate the coverage area rate and spectral efficiency  under this scenario.
 And related parameters that affect network performance are discussed.
@@ -103,7 +103,7 @@ At the second step is  the Zero-Forcing Beamforming (ZFBF) technique based on SB
 besides, simulation analysis is used to discuss the performance of the optimized network.
 }
 
-\ekeywords{UDNs, Stochastic Geometry, Clustering, CoMP, Beamforming}
+\ekeywords{UDNs, stochastic geometry, clustering, CoMP, beamforming}
 
 
 \makecover
