@@ -1742,13 +1742,15 @@ FUNCTION {format.tr.number}
 FUNCTION {format.addr.pub}
 { publisher empty$
     {address empty$
-        { ".[S.l.]: [s.n.] " *}
-        { address ": [s.n.] " * }
+        %{ ".[S.l.]: [s.n.] " *}
+        { " " *}
+        { address " " * }
       if$
     }
     { address empty$
-        { ".[S.l.]: " * }
-        { address ": " * }
+        %{ ".[S.l.]: " * }
+        { " " * }
+        { address " " * }
       if$
       publisher *
     }
@@ -1776,12 +1778,15 @@ FUNCTION {format.caddr.pub}
 FUNCTION {format.addr.institution}
 { institution empty$
     {address empty$
-        { ".[S.l.]: [s.n.] " *}
-        { address ": [s.n.] " * }
+        %{ ".[S.l.]: [s.n.] " *}
+        { " " *}
+        %{ address ": [s.n.] " * }
+        { address " " * }
       if$
     }
     { address empty$
-        { ".[S.l.]: " * }
+        %{ ".[S.l.]: " * }
+        { " " * }
         { address ": " * }
       if$
       institution *
@@ -1810,12 +1815,15 @@ FUNCTION {format.caddr.institution}
 FUNCTION {format.school.pub}
 { school empty$
     {address empty$
-        { "[S.l.]: [s.n.] " }
-        { address ": [s.n.] " * }
+        %{ "[S.l.]: [s.n.] " }
+        { " " }
+        %{ address ": [s.n.] " * }
+        { address " " * }
       if$
     }
     { address empty$
-        { ".[S.l.]: " * }
+        %{ ".[S.l.]: " * }
+        { " " * }
         { address ": " * }
       if$
       school *
@@ -1848,12 +1856,15 @@ FUNCTION {format.inproceedings.addr.pub}
 TypeofLit empty$
        {publisher empty$
     {address empty$
-        { ".[S.l.]: [s.n.] " }
-        { address ": [s.n.] " * }
+        %{ ".[S.l.]: [s.n.] " }
+        { " " }
+        %{ address ": [s.n.] " * }
+        { address " " * }
       if$
     }
     { address empty$
-        { ".[S.l.]: " * }
+        %{ ".[S.l.]: " * }
+        { " " * }
         { address ": " * }
       if$
       publisher *
@@ -1890,11 +1901,13 @@ FUNCTION {format.misc.addr.pub}
 { publisher empty$
     {address empty$
         { "" }
-        { address ": [s.n.] " * }
+        %{ address ": [s.n.] " * }
+        { address " " * }
       if$
     }
     { address empty$
-        { "[S.l.]: " * }
+        %{ "[S.l.]: " * }
+        { " " * }
         { address ": " * }
       if$
       publisher *

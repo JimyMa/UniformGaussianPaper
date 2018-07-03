@@ -98,7 +98,7 @@
     \parbox[t]{\hsize}{\centering\algocf@captiontext{#1}{#2}}%
   \addtolength{\hsize}{-\algomargin}%
 }
-\newcommand{\AlgoBiCaption}[2]{%直接取出自定义的中英文标题条目加入到真正的\caption 中
+\newcommand{\AlgoBiCaption}[2]{
    \caption[#1]{\protect\setlength{\baselineskip}{1.5em}#1 \protect \\ Algo. \thealgocf~~ #2} % \algoencaption{#2}
    \addcontentsline{aen}{algoen}{\protect\numberline{\thealgoen}{#2}}
    }

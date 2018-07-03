@@ -7,10 +7,11 @@
 
 \bibitem[Hu et al.(2018)]{QosUDN}
 Hu W~C, Huang N~H, Chiueh T~D.
+\newblock
 \newblock Software Defined Radio Implementation of an LTE Downlink Transceiver
-  for Ultra Dense Networks[J].
-\newblock 2018 IEEE International Symposium on Circuits and Systems (ISCAS),
-  2018:1-5.
+  for Ultra Dense Networks[C]//2018 IEEE International Symposium on Circuits
+  and Systems (ISCAS).
+\newblock 2018:1-5.
 
 \bibitem[Sadr and Adve(2014)]{4LRA}
 Sadr S, Adve R~S.
@@ -36,8 +37,9 @@ Sokun H~U, Bedeer E, Gohary R~H, et al.
 
 \bibitem[D.~Stoyan and Mecke(1996)]{Stogeo}
 D.~Stoyan W~K, Mecke J.
-\newblock Stochastic Geometry and Its Applications[J].
-\newblock John Wiley and Sons, 1996.
+\newblock
+\newblock Stochastic Geometry and Its Applications[M] John Wiley and Sons,
+  1996.
 
 \bibitem[Chandrasekhar et al.(2009)]{2LayerPC}
 Chandrasekhar V, Andrews J~G, Muharemovic T, et al.
@@ -62,30 +64,37 @@ Hu B, Wang Y, Wang C.
 \newblock A maximum data transmission rate oriented dynamic APs grouping scheme
   in user-centric UDN[C]//2017 International Symposium on Intelligent Signal
   Processing and Communication Systems (ISPACS).
-\newblock .[S.l.]: [s.n.] , 2017:56-61.
+\newblock 2017:56-61.
 
 \bibitem[Boljevic(2017)]{costudn}
 Boljevic S.
 \newblock
 \newblock Cost of optimal placement of a CHP plant within existing UDN[C]//2017
   14th International Conference on the European Energy Market (EEM).
-\newblock .[S.l.]: [s.n.] , 2017:1-6.
+\newblock 2017:1-6.
 
 \bibitem[Xue et al.(2016)]{DisPrecode}
 Xue Y, Tian Y, Yang C.
+\newblock
 \newblock Distributed precoding in ultra-dense network with dynamic user
-  access[J].
+  access[C]//2016 IEEE/CIC International Conference on Communications in China
+  (ICCC).
 \newblock 2016:1-6.
 
 \bibitem[Kurras et al.(2015)]{LayerPrecode}
 Kurras M, Shehata M, Hassan K, et al.
+\newblock
 \newblock Spatial interference management with hierarchical precoding in
-  ultra-dense heterogeneous networks[J].
+  ultra-dense heterogeneous networks[C]//2015 IEEE 11th International
+  Conference on Wireless and Mobile Computing, Networking and Communications
+  (WiMob).
 \newblock 2015:520-526.
 
 \bibitem[Thiele and Kurras(2014)]{Layer2Precode}
 Thiele L, Kurras M.
-\newblock Hierarchical precoding for ultra-dense heterogeneous networks[J].
+\newblock
+\newblock Hierarchical precoding for ultra-dense heterogeneous
+  networks[C]//2014 48th Asilomar Conference on Signals, Systems and Computers.
 \newblock 2014:1286-1290.
 
 \bibitem[Zhang et al.(2018){\natexlab{a}}]{Ucent}
@@ -96,9 +105,11 @@ Zhang Y, Bi S, Zhang Y~J~A.
 
 \bibitem[Chen et al.(2017){\natexlab{a}}]{CoMPUDN}
 Chen Y~H, Chao H~L, Wu S~H, et al.
+\newblock
 \newblock Resource allocation with CoMP transmission in ultra dense cloud-based
-  LTE small cell networks[J].
-\newblock 2017:1-5.
+  LTE small cell networks[C]//2017 IEEE 28th Annual International Symposium on
+  Personal, Indoor, and Mobile Radio Communications (PIMRC).
+\newblock 2017{\natexlab{a}}:1-5.
 
 \bibitem[Liu et al.(2017){\natexlab{a}}]{UNOMAcent}
 Liu Y, Li X, Yu F~R, et al.
@@ -126,7 +137,7 @@ Huiyu Y, Naizheng Z, Yuyu Y, et al.
 \newblock Performance evaluation of coordinated multipoint reception in C-RAN
   under LTE-Advanced uplink[C]//7th International Conference on Communications
   and Networking in China.
-\newblock .[S.l.]: [s.n.] , 2012:778-783.
+\newblock 2012:778-783.
 
 \bibitem[Chen et al.(2017){\natexlab{b}}]{mmimoC-RAN}
 Chen N, Rong B, Zhang X, et al.
@@ -139,7 +150,7 @@ Xia W, Zhang J, Quek T~Q~S, et al.
 \newblock Joint Optimization of Fronthaul Compression and Bandwidth Allocation
   in Heterogeneous C-RAN[C]//GLOBECOM 2017 - 2017 IEEE Global Communications
   Conference.
-\newblock .[S.l.]: [s.n.] , 2017:1-6.
+\newblock 2017:1-6.
 
 \bibitem[Zhang et al.(2018){\natexlab{b}}]{d2dC-RAN2}
 Zhang B, Mao X, Yu J~L, et al.
@@ -152,7 +163,7 @@ Rahman M~M~U, Ghauch H, Imtiaz S, et al.
 \newblock
 \newblock RRH Clustering and Transmit Precoding for Interference-Limited 5G
   C-RAN Downlink[C]//2015 IEEE Globecom Workshops (GC Wkshps).
-\newblock .[S.l.]: [s.n.] , 2015:1-7.
+\newblock 2015:1-7.
 
 \bibitem[Wang et al.(2017)]{iccC-RAN}
 Wang X, Alabbasi A, Cavdar C.
@@ -160,7 +171,7 @@ Wang X, Alabbasi A, Cavdar C.
 \newblock Interplay of energy and bandwidth consumption in C-RAN with optimal
   function split[C]//2017 IEEE International Conference on Communications
   (ICC).
-\newblock .[S.l.]: [s.n.] , 2017:1-6.
+\newblock 2017:1-6.
 
 \bibitem[Zhao et al.(2017)]{jointaseeeopt}
 Zhao G, Chen S, Zhao L, et al.
@@ -174,7 +185,7 @@ Liu M, Teng Y, Song M.
 \newblock CoMP Handover Probability Analysis with Different Handover Schemes in
   Ultra-Dense Networks[C]//2017 IEEE Wireless Communications and Networking
   Conference (WCNC).
-\newblock .[S.l.]: [s.n.] , 2017{\natexlab{b}}:1-6.
+\newblock 2017{\natexlab{b}}:1-6.
 
 \bibitem[Jia et al.(2017)]{compca}
 Jia J, Deng Y, Chen J, et al.
@@ -188,14 +199,14 @@ Chen F, Sun Y, Qin Y, et al.
 \newblock Checks and Balances: A Low-Complexity High-Gain Uplink Power
   Controller for CoMP[C]//2016 IEEE Global Communications Conference
   (GLOBECOM).
-\newblock .[S.l.]: [s.n.] , 2016:1-6.
+\newblock 2016:1-6.
 
 \bibitem[Tseng et al.(2016)]{compudn3}
 Tseng C~K, Wu S~H, Chao H~L, et al.
 \newblock
 \newblock An Effective Antenna Allocation for CoMP Transmission in Dense Small
   Cell Networks[C]//2016 IEEE Global Communications Conference (GLOBECOM).
-\newblock .[S.l.]: [s.n.] , 2016:1-6.
+\newblock 2016:1-6.
 
 \bibitem[Shannon(1948)]{TheMathematicalTheoryOfCommunication}
 Shannon C~E.
@@ -205,12 +216,12 @@ Shannon C~E.
 \bibitem[Mackay(2003)]{InfoTheoryInference}
 Mackay D~J.
 \newblock
-\newblock Information Theory, Inference, and Learning Algorithm[M].[S.l.]:
-  Cambridge University, 2003.
+\newblock Information Theory, Inference, and Learning Algorithm[M] Cambridge
+  University, 2003.
 
 \bibitem[李航(2012)]{statisticslearning}
 李航.
 \newblock
-\newblock 统计学习方法[M].[S.l.]: 清华大学出版社, 2012.
+\newblock 统计学习方法[M] 清华大学出版社, 2012.
 
 \end{thebibliography}

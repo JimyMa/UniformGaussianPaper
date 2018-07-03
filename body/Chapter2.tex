@@ -1,6 +1,6 @@
 % !Mode:: "TeX:UTF-8"
 
-\BiChapter{规则的微基站部署的性能分析}{architecture and system model}
+\BiChapter{规则微基站部署的网络性能分析}{architecture and system model}
 
 本章介绍规则的微基站部署，
 这也是网络部署的一种基本的方法。
@@ -81,7 +81,7 @@
 
 \BiSection{环形的基站部署}{Defination of UDNs}
 
-\BiSubsection{环形的基站部署的拓扑结构}{Defination of UDNs}
+\BiSubsection{拓扑结构}{Defination of UDNs}
 环形基站部署将基站部署在一个圆环上，其特别适合大型比赛场馆，大型演唱会等场景下的基站部署。
 环形的基站部署方法的示意图如图~\ref{single_circle_bs_show}~所示，
 在区域~$\mathcal{D}$~上，选定半径~$R$，在半径为~$R$~的圆上均匀的部署~$N$~个基站，
@@ -104,7 +104,7 @@ $\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
 有关系的，由于网络模型复杂，不易对网络的各个性能求出闭合解，
 但是可以用蒙特卡洛仿真的方法分析网络的性能，下面对在不同的参数条件下的基站环形部署的性能进行分析。
 
-\BiSubsection{环形的基站部署的遍历容量}{Defination of UDNs}
+\BiSubsection{遍历容量}{Defination of UDNs}
 对环形基站的遍历容量分布图进行蒙特卡洛仿真分析，
 仿真的参数表如表~\ref{single_circle_sinr_sim_para}~所示，
 \begin{table}[htbp]
@@ -139,7 +139,7 @@ $\mathcal{D}$~为一个~$100\mathrm{m}\times 100 \mathrm{m}$~的区域，
 整个区域的热力分布图呈现辐射状，信道衰减系数大的辐射的更远，处在中心处的用户的性能很差，
 遍历容量小于~$1\mathrm{bps/Hz}$。
 
-\BiSubsection{环形的基站部署的覆盖率的性能分析}{Defination of UDNs}
+\BiSubsection{覆盖率}{Defination of UDNs}
 我们在上一小节讨论了路径损耗因子对性能的影响，
 接下来对网络的覆盖率性能采用蒙特卡洛仿真分析，对网络的覆盖率性能进行分析，
 主要分析环形基站部署的两个重要指标，即圆环的半径~$R$和基站的个数~$N$对基站的覆盖率的影响。
@@ -232,8 +232,8 @@ $N=8$，$R=25\mathrm{m}$~时的情况和$N=16$，$R=50\mathrm{m}$~时，网络�
 \end{figure}
 
 
-\BiSection{方格形的基站部署的覆盖率的性能分析}{Defination of UDNs}
-\BiSubsection{方格形的基站部署的拓扑结构}{Defination of UDNs}
+\BiSection{方格形的基站部署}{Defination of UDNs}
+\BiSubsection{拓扑结构}{Defination of UDNs}
 方格形的基站部署将基站部署在固定的方格点上，部署的方法为首先在区域内的纵向每隔~$l_1$~画一条直线，
 然后在横向每隔~$l_2$~画一条之间，将基站部署在直线的相交点上。
 方格形的基站部署方法的示意图如图~\ref{grid_bs_station_show}~所示，
@@ -251,7 +251,7 @@ $l_1=l_2=20\mathrm{m}$，
 边缘用户的覆盖率和遍历容量较差。
 下面对在不同的参数条件下的基站格点形部署的性能进行定性和定量的分析。
 
-\BiSubsection{方格形的基站部署的遍历容量}{Defination of UDNs}
+\BiSubsection{遍历容量}{Defination of UDNs}
 对方格形基站的遍历容量分布图进行蒙特卡洛仿真分析，
 仿真的参数表如表~\ref{square_grid_sinr_sim_para}~所示，
 \begin{table}[htbp]
@@ -285,7 +285,7 @@ $l_1=l_2=20\mathrm{m}$，
 由于受到干扰基站的强烈的干扰，网络的遍历容量性能较差，小于~$1\mathrm{bps/Hz}$。
 虽然大部分区域的覆盖率性能较好，但是仍然需要对基站中心的用户采用技术手段对其性能进行提升。
 
-\BiSubsection{方格形的基站部署的覆盖率}{Defination of UDNs}
+\BiSubsection{覆盖率}{Defination of UDNs}
 我们在上一小节对网络的遍历容量进行了定性的分析，
 下面对网络的覆盖率性能做定量的分析，
 主要分析在不同的横纵间隔~$l_1$、$l_2$~的情况下，基站的覆盖率的性能。
